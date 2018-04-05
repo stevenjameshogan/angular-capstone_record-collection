@@ -4,7 +4,7 @@ collectionApp.service('CollectionService', ['$http', function($http){
 
     const self = this;
 
-    self.records = { collection: [] }
+    self.records = { collection: [], genres: [] }
 
     self.getRecords = function(){
         $http.get('/records').then(function(response){
@@ -15,7 +15,17 @@ collectionApp.service('CollectionService', ['$http', function($http){
         });
     };
 
+    self.getGenres = function(){
+        $http.get('/genres').then(function(response){
+            console.log(response.data);
+            self.records.genres = response.data;
+        }).catch(function(error){
+            console.log('Error getting record', error);
+        });
+    };
+
 
     self.getRecords();
+    self.getGenres();
     
 }]);

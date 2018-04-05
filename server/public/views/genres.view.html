@@ -1,1 +1,14 @@
 <h2>Genres</h2>
+
+<table>
+    <thead>
+        <tr><th>Genre</th><th>Total Records</th><th>Actions</th></tr>
+    </thead>
+    <tbody>
+
+        <tr ng-repeat="genre in vm.records.genres">
+            <td>{{genre.name}}</td>
+        </tr>
+
+    </tbody>
+</table>
