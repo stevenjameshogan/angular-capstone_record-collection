@@ -1,7 +1,25 @@
-<h2>My Records</h2>
 
-<section>
+<section id="addRecord">
+    <h4>Add a Record</h2>
+    <form ng-submit="vm.addRecord(vm.recordToAdd)">
+        <span>Title</span><input type="text" placeholder="title" ng-model="vm.recordToAdd.title">
+        <span>Artist</span><input type="text" placeholder="artist" ng-model="vm.recordToAdd.artist">
+        </span><select ng-model="vm.recordToAdd.genre">
+                <!-- not selected / blank option -->
+                <option value="">Select Genre</option>
+                <!-- repeat over genres -->
+                <option ng-repeat="genre in vm.records.genres" value="{{genre.name}}">{{genre.name}}</option>
+        </select>
+        <span>Release Year</span><input type="number" placeholder="ex. 1977" ng-model="vm.recordToAdd.release_year">
+        <span>Length</span><input type="number" placeholder="minutes" ng-model="vm.recordToAdd.run_time">
+        <span>Album Art</span><input type="text" placeholder="url" ng-model="vm.recordToAdd.album_img">
+        <input type="submit">
+    </form>
+</section>
 
+
+<section id="collection">
+    <h4>My Collection</h2>
     <div ng-repeat="record in vm.records.collection" class="recordDiv">
         <p>{{record.title}}</p>
         <p>{{record.artist}}</p>
@@ -9,7 +27,5 @@
         <p>{{record.release_year}}</p>
         <p>{{record.run_time}} Min</p>
         <span><img class="albumArt" ng-src="{{record.album_img}}"></span>
-
     </div>
-
 </section>

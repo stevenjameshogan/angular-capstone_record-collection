@@ -5,5 +5,6 @@ collectionApp.controller('GenresController', ['CollectionService', function(Coll
 
     self.records = CollectionService.records;
     self.getGenres = CollectionService.getGenres;
+    self.getRecords = CollectionService.getRecords;
 
 }]);
