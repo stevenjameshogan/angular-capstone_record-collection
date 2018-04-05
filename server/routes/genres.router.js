@@ -11,5 +11,14 @@ router.get('/', (req, res) => {
     })
 })
 
+router.post('/', (req, res) => {
+    const queryText = `INSERT INTO genres (name) VALUES ($1)`;
+    pool.query(queryText, [req.body.genre]).then((result) => {
+        res.sendStatus(201);
+    }).catch((error) => {
+        console.log('Error adding genre', error);
+        res.sendStatus(500);
+    });
+})
 
 module.exports = router;

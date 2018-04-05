@@ -22,15 +22,23 @@ collectionApp.service('CollectionService', ['$http', function($http){
     };
 
     self.addRecord = function(recordToAdd) {
-        console.log('in Add record', recordToAdd);
         $http.post('/records', recordToAdd).then(function(response){
-            console.log('Record added!');
             self.getRecords();
             self.getGenres();
         }).catch(function(error){
             console.log('Error adding record!');
         })
-        
+    }
+
+    self.addGenre = function(genreToAdd) {
+        console.log('in Add genre', genreToAdd);
+        $http.post('/genres', {genre: genreToAdd} ).then(function(response){
+            console.log('Genre added!');
+            self.getRecords();
+            self.getGenres();
+        }).catch(function(error){
+            console.log('Error adding genre!');
+        })
     }
 
     self.getRecords();

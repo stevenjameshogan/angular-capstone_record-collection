@@ -3,8 +3,14 @@ collectionApp.controller('GenresController', ['CollectionService', function(Coll
     
     const self = this;
 
+    self.genreToAdd = '';
+
     self.records = CollectionService.records;
     self.getGenres = CollectionService.getGenres;
     self.getRecords = CollectionService.getRecords;
+
+    self.addGenre = function(genreToAdd){
+        CollectionService.addGenre(genreToAdd);
+    }
 
 }]);
