@@ -1,11 +1,27 @@
 # angular-capstone_record-collection
 
+CREATE TABLE records (
+id serial primary key,
+title varchar (120),
+artist varchar (80),
+genre varchar (80),
+release_year INT,
+run_time INT,
+album_img varchar (200)
+);
+
+CREATE TABLE genres (
+id serial primary key,
+name varchar (80),
+quantity INT
+);
+
 TASK LIST
 
 [x] - Install dependencies (node, express, angular, )
 [x] - Create file structure and basic files (w/exception of routes, services)
-[] - Create database and tables, add starting records
-[] - Setup server and connect to postgresql (w/exception of routes)
+[x] - Create database and tables, add starting records
+[x] - Setup server and connect to postgresql (w/exception of routes)
 [] - Create basic HTML wireframe
 [] - Angular setup
     [] - Create on client.js
