@@ -21,4 +21,18 @@ router.post('/', (req, res) => {
     });
 })
 
+router.delete('/:id', (req, res) => {
+    const queryText = `DELETE FROM genres WHERE id = $1`;
+    pool.query(queryText, [req.params.id]).then((result) => {
+        console.log('Genre deleted!');
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log('Could not delete from db');
+        res.sendStatus(500);
+    })
+})
+
+
+
+
 module.exports = router;

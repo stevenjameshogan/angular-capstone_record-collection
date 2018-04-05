@@ -9,6 +9,11 @@
 
         <tr ng-repeat="genre in vm.records.genres">
             <td>{{genre.name}}</td>
+            <td>TBD</td>
+            <td>
+                <button ng-click="vm.deleteGenre(genre)">Delete</button>
+                <button>Edit</button>
+            </td>
         </tr>
 
     </tbody>

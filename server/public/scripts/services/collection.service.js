@@ -7,22 +7,22 @@ collectionApp.service('CollectionService', ['$http', function($http){
     self.records = { collection: [], genres: [] }
 
     self.getRecords = function(){
-        $http.get('/records').then(function(response){
+        $http.get('/records').then((response) => {
             self.records.collection = response.data;
-        }).catch(function(error){
+        }).catch((error) => {
             console.log('Error getting record', error);
         });
     };
     self.getGenres = function(){
-        $http.get('/genres').then(function(response){
+        $http.get('/genres').then((response) => {
             self.records.genres = response.data;
-        }).catch(function(error){
+        }).catch((error) => {
             console.log('Error getting record', error);
         });
     };
 
     self.addRecord = function(recordToAdd) {
-        $http.post('/records', recordToAdd).then(function(response){
+        $http.post('/records', recordToAdd).then((response) => {
             self.getRecords();
             self.getGenres();
         }).catch(function(error){
@@ -31,13 +31,20 @@ collectionApp.service('CollectionService', ['$http', function($http){
     }
 
     self.addGenre = function(genreToAdd) {
-        console.log('in Add genre', genreToAdd);
-        $http.post('/genres', {genre: genreToAdd} ).then(function(response){
-            console.log('Genre added!');
+        $http.post('/genres', {genre: genreToAdd} ).then((response) => {
             self.getRecords();
             self.getGenres();
-        }).catch(function(error){
+        }).catch((error) => {
             console.log('Error adding genre!');
+        })
+    }
+
+    self.deleteGenre = function(genreToDelete){
+        $http.delete(`/genres/${genreToDelete.id}`).then((response) => {
+            self.getRecords();
+            self.getGenres();
+        }).catch((error) => {
+            console.log('error deleting', error);
         })
     }
 

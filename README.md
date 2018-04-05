@@ -34,9 +34,11 @@ TASK LIST
 [x] - Create client GET RECORDS request, show on DOM
 [x] - Create server GET GENRES request (first test in Postico), ensure getting data from db
 [x] - Create client GET GENRES request, show on DOM
-[] - Create server POST request (first test in Postico)
-[] - Create client POST request (add HTML inputs), ensure it makes it to db
-[] - Shift server to route, ensure it works
+[x] - Create server POST RECORDS request (first test in Postico)
+[x] - Create client POST RECORDS request (add HTML inputs), ensure it makes it to db
+[x] - Create server POST GENRES request (first test in Postico)
+[x] - Create client POST GENRES request (add HTML inputs), ensure it makes it to db
+[X] - Shift server to route, ensure it works
 [] - Create server side DELETE route 
 [] - Create client side DELETE route (add html buttons)
 [] - Polish all routes
