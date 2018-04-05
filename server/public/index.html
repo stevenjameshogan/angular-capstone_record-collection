@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- <link rel="stylesheet" href="styles/angular-material.css">
+    <link rel="stylesheet" href="styles/angular-material.css">
     <script src="vendors/angular.js"></script>
     <script src="vendors/angular-route.js"></script>
     <script src="vendors/angular-material.min.js"></script>
@@ -12,13 +12,16 @@
     <script src="vendors/angular-messages.min.js"></script>
     <script src="vendors/angular-animate.min.js"></script>
     <script src="scripts/client.js"></script>
-    <script src="scripts/services/records.service.js"></script>
+    <script src="scripts/services/collection.service.js"></script>
     <script src="scripts/controllers/genres.controller.js"></script>
-    <script src="scripts/controllers/records.controller.js"></script> -->
+    <script src="scripts/controllers/records.controller.js"></script>
     <link rel="stylesheet" href="styles/styles.css">
     <title>My Record Collection</title>
 </head>
-<body>
-    <h1>My record collection!</h1>
+<body ng-app="collectionApp">
+    <div ng-include=" 'views/templates/nav.html' "></div>
+    <main ng-view>
+         
+     </main> 
 </body>
 </html>

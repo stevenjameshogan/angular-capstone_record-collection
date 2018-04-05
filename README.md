@@ -22,14 +22,14 @@ TASK LIST
 [x] - Create file structure and basic files (w/exception of routes, services)
 [x] - Create database and tables, add starting records
 [x] - Setup server and connect to postgresql (w/exception of routes)
-[] - Create basic HTML wireframe
-[] - Angular setup
-    [] - Create on client.js
-    [] - Link to HTML
-    [] - Genre, Collection views and controllers
-    [] - Setup service, ensure connection to controllers
-    [] - Nav bar
-    [] - Source into index.html
+[x] - Create basic HTML wireframe
+[x] - Angular setup
+    [x] - Create on client.js
+    [x] - Link to HTML
+    [x] - Genre, Collection views and controllers
+    [x] - Setup service, ensure connection to controllers
+    [x] - Nav bar
+    [x] - Source into index.html
 [] - Create server GET request (first test in Postico), ensure getting data from db
 [] - Create client GET request, show on DOM
 [] - Create server POST request (first test in Postico)
