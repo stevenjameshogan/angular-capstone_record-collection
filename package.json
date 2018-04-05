@@ -1,0 +1,25 @@
+{
+  "name": "angular-capstone_record-collection",
+  "version": "1.0.0",
+  "description": "angular capstone",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stevenjameshogan/angular-capstone_record-collection.git"
+  },
+  "author": "SJH",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stevenjameshogan/angular-capstone_record-collection/issues"
+  },
+  "homepage": "https://github.com/stevenjameshogan/angular-capstone_record-collection#readme",
+  "dependencies": {
+    "angular": "^1.6.9",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "pg": "^7.4.1"
+  }
+}
