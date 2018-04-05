@@ -1,1 +1,15 @@
-<h2>Records</h2>
+<h2>My Records</h2>
+
+<section>
+
+    <div ng-repeat="record in vm.records.collection" class="recordDiv">
+        <p>{{record.title}}</p>
+        <p>{{record.artist}}</p>
+        <p>{{record.genre}}</p>
+        <p>{{record.release_year}}</p>
+        <p>{{record.run_time}} Min</p>
+        <span><img class="albumArt" ng-src="{{record.album_img}}"></span>
+
+    </div>
+
+</section>

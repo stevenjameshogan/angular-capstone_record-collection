@@ -30,8 +30,10 @@ TASK LIST
     [x] - Setup service, ensure connection to controllers
     [x] - Nav bar
     [x] - Source into index.html
-[] - Create server GET request (first test in Postico), ensure getting data from db
-[] - Create client GET request, show on DOM
+[x] - Create server GET RECORDS request (first test in Postico), ensure getting data from db
+[x] - Create client GET RECORDS request, show on DOM
+[] - Create server GET GENRES request (first test in Postico), ensure getting data from db
+[] - Create client GET GENRES request, show on DOM
 [] - Create server POST request (first test in Postico)
 [] - Create client POST request (add HTML inputs), ensure it makes it to db
 [] - Shift server to route, ensure it works
