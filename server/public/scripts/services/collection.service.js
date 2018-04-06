@@ -9,7 +9,6 @@ collectionApp.service('CollectionService', ['$http', function($http){
     self.getRecords = function(){
         $http.get('/records').then((response) => {
             self.records.collection = response.data;
-            console.log(response.data);
         }).catch((error) => {
             console.log('Error getting record', error);
         });
@@ -17,7 +16,6 @@ collectionApp.service('CollectionService', ['$http', function($http){
     self.getGenres = function(){
         $http.get('/genres').then((response) => {
             self.records.genres = response.data;
-            console.log(response.data);
         }).catch((error) => {
             console.log('Error getting record', error);
         });
@@ -55,6 +53,21 @@ collectionApp.service('CollectionService', ['$http', function($http){
             self.getGenres();
         }).catch((error) => {
             console.log('error deleting', error);
+        })
+    }
+
+    self.editRecord = function(recordToEdit){
+        console.log(recordToEdit);
+        
+        $http({
+            method: 'PUT',
+            url: `/records/${recordToEdit.id}`,
+            data: recordToEdit
+        }).then((response) => {
+            self.getRecords();
+            self.getGenres();
+        }).catch((error) => {
+            console.log('error updating', error);
         })
     }
 

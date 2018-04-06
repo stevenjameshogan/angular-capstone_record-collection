@@ -19,17 +19,39 @@
 
 <section id="collection">
     <h4>My Collection</h2>
-    <!-- <div>
-        <span>Filter by genre</span><select name="filter" id="filter" ng-model="filter" ng-options="genre for genre in vm.records.genres"></select>
-    </div> -->
-    <div ng-repeat="record in vm.records.collection | filter: filter" class="recordDiv">
-        <p>{{record.title}}</p>
-        <p>{{record.artist}}</p>
-        <p>{{record.genre_name}}</p>
-        <p>{{record.release_year}}</p>
-        <p>{{record.run_time}} Min</p>
-        <img class="albumArt" ng-src="{{record.album_img}}"><br>
-        <button ng-click="vm.deleteRecord(record)">Delete</button>
+    <div ng-repeat="record in vm.records.collection" class="recordDiv">
+        <div ng-if="!edit">{{record.title}}</div>
+        <div>
+            <input type="text" ng-model="record.title" ng-if="edit">
+        </div>
+        <div ng-if="!edit">{{record.artist}}</div>
+        <div>
+            <input  type="text" ng-model="record.artist" ng-if="edit">
+        </div>
+        <div ng-if="!edit">{{record.genre_name}}</div>
+        <select ng-model="record.genre_id" ng-if="edit">
+                <!-- not selected / blank option -->
+                <option value="{{record.genre_id}}">{{record.genre_name}}</option>
+                <!-- repeat over genres -->
+                <option ng-repeat="genre in vm.records.genres" value="{{genre.genre_id}}">{{genre.name}}</option>
+        </select>
+        <div ng-if="!edit">{{record.release_year}}</div>
+        <div>
+            <input  type="number" ng-model="record.release_year" ng-if="edit">
+        </div>
+        <div ng-if="!edit">{{record.run_time}} Min.</div>
+        <div>
+            <input  type="number" ng-model="record.run_time" ng-if="edit">
+        </div>
+        <div><img class="albumArt" ng-src="{{record.album_img}}"></div>
+        <div>
+            <input type="text" ng-model="record.album_img" ng-if="edit">
+        </div>
+        <div class="buttonsDiv">
+            <button ng-show="!edit" ng-click="edit = true">Edit</button>
+            <button ng-show="edit" ng-click="vm.editRecord(record); edit=false">Save</button>
+            <button ng-click="vm.deleteRecord(record); edit=false">Delete</button>
+        </div>
     </div>
 </section>
 
