@@ -49,7 +49,7 @@ TASK LIST - THURSDAY
 
 TASK LIST - FRIDAY
 
-    [] - Get genres showing on DOM
+    [x] - Get genres showing on DOM
     [] - Create PUT RECORDS route on server side
     [] - Create PUT RECORDS route on client side
     [] - Create PUT GENRES route on server side

@@ -26,7 +26,7 @@
     <div ng-repeat="record in vm.records.collection | filter: filter" class="recordDiv">
         <p>{{record.title}}</p>
         <p>{{record.artist}}</p>
-        <p>{{record.name}}</p>
+        <p>{{record.genre_name}}</p>
         <p>{{record.release_year}}</p>
         <p>{{record.run_time}} Min</p>
         <img class="albumArt" ng-src="{{record.album_img}}"><br>
