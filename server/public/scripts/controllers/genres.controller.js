@@ -8,6 +8,7 @@ collectionApp.controller('GenresController', ['CollectionService', function(Coll
     self.records = CollectionService.records;
     self.getGenres = CollectionService.getGenres;
     self.getRecords = CollectionService.getRecords;
+    self.editGenre = CollectionService.editGenre;
 
     self.addGenre = function(genreToAdd){
         CollectionService.addGenre(genreToAdd);

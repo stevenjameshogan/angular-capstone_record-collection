@@ -32,6 +32,18 @@ router.delete('/:id', (req, res) => {
     })
 })
 
+router.put('/:id', (req, res) => {
+    console.log('in update genre', req.body, req.params);
+    const queryText = `UPDATE genres SET name = $1 WHERE genre_id = $2`
+    pool.query(queryText, [req.body.name, req.params.id])
+        .then((result) => {
+            console.log('Success updating genre!');
+            res.sendStatus(201);
+        }).catch((error) => {
+            console.log('error updating genre', error);
+            res.sendStatus(500);
+        })
+})
 
 
 

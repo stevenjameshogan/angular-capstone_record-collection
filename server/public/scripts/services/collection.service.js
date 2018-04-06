@@ -57,8 +57,6 @@ collectionApp.service('CollectionService', ['$http', function($http){
     }
 
     self.editRecord = function(recordToEdit){
-        console.log(recordToEdit);
-        
         $http({
             method: 'PUT',
             url: `/records/${recordToEdit.id}`,
@@ -70,8 +68,22 @@ collectionApp.service('CollectionService', ['$http', function($http){
             console.log('error updating', error);
         })
     }
+    self.editGenre = function(genreToEdit){
+        console.log('in edit genre', genreToEdit);
+        $http({
+            method: 'PUT',
+            url: `/genres/${genreToEdit.genre_id}`,
+            data: genreToEdit
+        }).then((response) => {
+            self.getRecords();
+            self.getGenres();
+        }).catch((error) => {
+            console.log('error updating', error);
+        })
+        
+    }
+
 
     self.getRecords();
     self.getGenres();
-    
 }]);
