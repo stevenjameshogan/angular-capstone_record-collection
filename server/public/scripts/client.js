@@ -1,5 +1,5 @@
 // Declare new listingsApp as new Angular module, let angular know to use $routePovider for navigation
-const collectionApp = angular.module('collectionApp', ['ngRoute'])
+const collectionApp = angular.module('collectionApp', ['ngRoute', 'xeditable'])
 
 collectionApp.config(function($routeProvider){
     $routeProvider

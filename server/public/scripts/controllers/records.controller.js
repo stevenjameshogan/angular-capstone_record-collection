@@ -2,8 +2,9 @@ collectionApp.controller('RecordsController', ['CollectionService', function(Col
     console.log('Records Controllerloaded!');
 
     self = this;
-
     self.recordToAdd = {title:'', artist:'', genre_id:'', release_year:'', run_time: '', album_img:''};
+    
+    self.test = "Hello"
 
     self.records = CollectionService.records;
     self.getRecords = CollectionService.getRecords;
@@ -14,7 +15,14 @@ collectionApp.controller('RecordsController', ['CollectionService', function(Col
         self.recordToAdd = {title:'', artist:'', genre_id:'', release_year:'', run_time: '', album_img:''};
     }
 
+    self.editRecord = function(message){
+        console.log('in edit record', message);
+   
+
+    }
+
+
+
     self.deleteRecord = CollectionService.deleteRecord;
-        
     
 }]);
