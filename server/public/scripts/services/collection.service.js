@@ -9,6 +9,8 @@ collectionApp.service('CollectionService', ['$http', function($http){
     self.getRecords = function(){
         $http.get('/records').then((response) => {
             self.records.collection = response.data;
+            console.log(response.data);
+            
         }).catch((error) => {
             console.log('Error getting record', error);
         });
@@ -16,12 +18,14 @@ collectionApp.service('CollectionService', ['$http', function($http){
     self.getGenres = function(){
         $http.get('/genres').then((response) => {
             self.records.genres = response.data;
+            console.log(response.data);
         }).catch((error) => {
             console.log('Error getting record', error);
         });
     };
 
     self.addRecord = function(recordToAdd) {
+        console.log(recordToAdd);
         $http.post('/records', recordToAdd).then((response) => {
             self.getRecords();
             self.getGenres();
@@ -40,7 +44,8 @@ collectionApp.service('CollectionService', ['$http', function($http){
     }
 
     self.deleteGenre = function(genreToDelete){
-        $http.delete(`/genres/${genreToDelete.id}`).then((response) => {
+        console.log(genreToDelete.genre_id);
+        $http.delete(`/genres/${genreToDelete.genre_id}`).then((response) => {
             self.getRecords();
             self.getGenres();
         }).catch((error) => {
