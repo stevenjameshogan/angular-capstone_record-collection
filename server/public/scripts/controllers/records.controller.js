@@ -15,11 +15,7 @@ collectionApp.controller('RecordsController', ['CollectionService', function(Col
         self.recordToAdd = {title:'', artist:'', genre_id:'', release_year:'', run_time: '', album_img:''};
     }
 
-    self.editRecord = function(message){
-        console.log('in edit record', message);
-   
-
-    }
+    self.editRecord = CollectionService.editRecord;
 
 
 
