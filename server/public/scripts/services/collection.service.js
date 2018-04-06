@@ -10,7 +10,6 @@ collectionApp.service('CollectionService', ['$http', function($http){
         $http.get('/records').then((response) => {
             self.records.collection = response.data;
             console.log(response.data);
-            
         }).catch((error) => {
             console.log('Error getting record', error);
         });
