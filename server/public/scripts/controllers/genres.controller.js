@@ -11,6 +11,7 @@ collectionApp.controller('GenresController', ['CollectionService', function(Coll
 
     self.addGenre = function(genreToAdd){
         CollectionService.addGenre(genreToAdd);
+        self.genreToAdd = '';
     }
 
     self.deleteGenre = function(genreToDelete){
