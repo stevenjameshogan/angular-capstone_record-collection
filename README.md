@@ -39,9 +39,9 @@ TASK LIST
 [x] - Create server POST GENRES request (first test in Postico)
 [x] - Create client POST GENRES request (add HTML inputs), ensure it makes it to db
 [X] - Shift server to route, ensure it works
-[] - Create server side DELETE route 
-[] - Create client side DELETE route (add html buttons)
-[] - Polish all routes
-    [] - ng-repeat of Records on collection view, as "cards"
-    [] - ng-repeat of Genres on genre view, as "table"
-[] - Create Genre view (SQL joins to see total in Genre - test first in Postico)
+[x] - Create server side DELETE route 
+[x] - Create client side DELETE route (add html buttons)
+[x] - Polish all routes
+    [x] - ng-repeat of Records on collection view, as "cards"
+    [x] - ng-repeat of Genres on genre view, as "table"
+[x] - Create Genre view (SQL joins to see total in Genre - test first in Postico)
