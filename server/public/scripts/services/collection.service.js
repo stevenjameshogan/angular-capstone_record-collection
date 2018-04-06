@@ -42,8 +42,15 @@ collectionApp.service('CollectionService', ['$http', function($http){
         })
     }
 
+    self.deleteRecord = function(recordToDelete) {
+        $http.delete(`/records/${recordToDelete.id}`).then((response) => {
+            self.getRecords();
+            self.getGenres();
+        }).catch((error) => {
+            console.log('error deleting', error);
+        })
+    }
     self.deleteGenre = function(genreToDelete){
-        console.log(genreToDelete.genre_id);
         $http.delete(`/genres/${genreToDelete.genre_id}`).then((response) => {
             self.getRecords();
             self.getGenres();

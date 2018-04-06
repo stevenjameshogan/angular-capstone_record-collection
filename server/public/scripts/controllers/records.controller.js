@@ -13,4 +13,8 @@ collectionApp.controller('RecordsController', ['CollectionService', function(Col
         CollectionService.addRecord(recordToAdd);
         self.recordToAdd = {title:'', artist:'', genre_id:'', release_year:'', run_time: '', album_img:''};
     }
+
+    self.deleteRecord = CollectionService.deleteRecord;
+        
+    
 }]);

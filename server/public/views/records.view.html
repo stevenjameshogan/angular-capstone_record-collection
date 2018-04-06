@@ -26,6 +26,7 @@
         <!-- <p>{{record.genre_id}}</p> -->
         <p>{{record.release_year}}</p>
         <p>{{record.run_time}} Min</p>
-        <img class="albumArt" ng-src="{{record.album_img}}">
+        <img class="albumArt" ng-src="{{record.album_img}}"><br>
+        <button ng-click="vm.deleteRecord(record)">Delete</button>
     </div>
 </section>
