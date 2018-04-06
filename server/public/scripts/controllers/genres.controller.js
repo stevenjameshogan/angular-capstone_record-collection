@@ -15,7 +15,12 @@ collectionApp.controller('GenresController', ['CollectionService', function(Coll
     }
 
     self.deleteGenre = function(genreToDelete){
-        CollectionService.deleteGenre(genreToDelete);
+        if (genreToDelete.count == 0){
+            console.log('Count is 0 so can delete');
+        } else {
+            console.log(`Can't delete!`);
+             // CollectionService.deleteGenre(genreToDelete);
+        }
     }
 
 }]);

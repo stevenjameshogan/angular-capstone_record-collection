@@ -33,7 +33,6 @@ collectionApp.service('CollectionService', ['$http', function($http){
             console.log('Error adding record!');
         })
     }
-
     self.addGenre = function(genreToAdd) {
         $http.post('/genres', {genre: genreToAdd} ).then((response) => {
             self.getRecords();
