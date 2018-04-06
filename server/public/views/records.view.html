@@ -20,10 +20,13 @@
 
 <section id="collection">
     <h4>My Collection</h2>
-    <div ng-repeat="record in vm.records.collection" class="recordDiv">
+    <!-- <div>
+        <span>Filter by genre</span><select name="filter" id="filter" ng-model="filter" ng-options="genre for genre in vm.records.genres"></select>
+    </div> -->
+    <div ng-repeat="record in vm.records.collection | filter: filter" class="recordDiv">
         <p>{{record.title}}</p>
         <p>{{record.artist}}</p>
-        <!-- <p>{{record.genre_id}}</p> -->
+        <p>{{record.name}}</p>
         <p>{{record.release_year}}</p>
         <p>{{record.run_time}} Min</p>
         <img class="albumArt" ng-src="{{record.album_img}}"><br>
