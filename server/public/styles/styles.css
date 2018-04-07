@@ -5,6 +5,7 @@
     background-color: beige;
     padding: 20px;
     margin: 10px;
+    width: 230px;
     text-align: center;
 }
 
@@ -20,7 +21,7 @@ section {
 .albumArt {
     height: 150px;
     width: 150px;
-    padding: 30px;
+    padding-bottom: 10px;
 }
 
 span {
@@ -28,7 +29,7 @@ span {
 }
 
 input, select {
-    margin: 5px;
+    margin-left: 11px;
     font-family: 'Dosis', sans-serif;
     font-weight: 900;
     background-color: beige;
@@ -64,8 +65,8 @@ button {
 
 
 nav {
-    width: 100%;
-    margin: 0 auto 20px auto;
+    width: 96%;
+    /* margin: 0 auto 20px auto; */
     text-align: center;
     font-size: 25px;
     background-image: url('images/albums.jpg');
@@ -145,4 +146,13 @@ th {
 .buttonText {
     font-size: 17px;
     margin: 0px;
+}
+
+form,  {
+    margin-left: 8px;
+}
+
+#search {
+    margin-left: 11px;
+    margin-top:0px;
 }
