@@ -60,6 +60,8 @@ TASK LIST - FRIDAY
 TASK LIST - SATURDAY
 
     [x] - Replace edit/delete buttons with icons (records)
+    [] - Disable delete icons if has genres
+    [] - Dropdowns for length and year
     [] - Dummy image if no URL
     [] - Add tool tips
     [] - Angular Dialog
@@ -69,5 +71,9 @@ TASK LIST - SATURDAY
         [] - POST route/like David's
     [] - Favorite route/db/icon
     [] - API connect, display on DOM
+
+
+TASKI LIST - SUNDAY
+
     [] - Add comments
     [] - Cleanup CSS
