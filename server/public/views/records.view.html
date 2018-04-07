@@ -1,7 +1,6 @@
 <section id="addRecord">
     <h4>Add Record</h4>
     <form ng-submit="vm.addRecord(vm.recordToAdd)">
-        <!-- <md-input-container> -->
             <input type="text" placeholder="title" ng-model="vm.recordToAdd.title">
             <input type="text" placeholder="artist" ng-model="vm.recordToAdd.artist">
             <select ng-model="vm.recordToAdd.genre_id">
@@ -14,14 +13,13 @@
             <input type="number" placeholder="length (minutes)" ng-model="vm.recordToAdd.run_time">
             <input type="text" placeholder="image url" ng-model="vm.recordToAdd.album_img">
         <md-button class="mainButtonText" type="submit">Submit</md-button>
-    <!-- </md-input-container> -->
     </form>
 </section>
 
 <section id="collection">
     <h4>My Collection</h4>
     <input id="search" type="text" placeholder="Search" ng-model="vm.searchQ">
-    <md-button ng-click="vm.getRecords()" class="mainButtonText">Go</md-button><br>
+    <span ng-click="vm.getRecords()" class="mainButtonText"></span><br>
     <div ng-repeat ="record in vm.records.collection | filter:vm.searchQ"  layout="column" class="recordDiv" flex>
         <div flex><img class="albumArt" ng-src="{{record.album_img}}"></div>
         <div flex ng-if="!edit">{{record.artist}}</div>
