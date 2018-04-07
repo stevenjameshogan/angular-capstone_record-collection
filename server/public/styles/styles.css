@@ -12,10 +12,13 @@
     text-align: center;
 }
 
-#genreDiv {
-   color: beige
+#genresDisplay {
+    font-size: 22px;
 }
 
+#genresDisplay:hover {
+    background-color: #E3EBF6;
+}
 
 section {
     color: beige;
