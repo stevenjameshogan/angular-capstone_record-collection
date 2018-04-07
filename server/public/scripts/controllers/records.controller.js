@@ -3,6 +3,9 @@ collectionApp.controller('RecordsController', ['CollectionService', function(Col
 
     self = this;
     self.recordToAdd = {title:'', artist:'', genre_id:'', release_year:'', run_time: '', album_img:''};
+    self.years = CollectionService.years;
+    self.minutes = CollectionService.minutes;
+    
     self.adding = false;
 
     self.records = CollectionService.records;
@@ -25,11 +28,8 @@ collectionApp.controller('RecordsController', ['CollectionService', function(Col
 
     self.editRecord = CollectionService.editRecord;
 
-
-
     self.deleteRecord = CollectionService.deleteRecord;
     
-
     self.changeView = function() {
         console.log('in change view');
         self.adding = !self.adding;

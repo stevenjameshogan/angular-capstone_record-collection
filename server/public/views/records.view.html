@@ -9,8 +9,18 @@
                     <!-- repeat over genres -->
                     <option ng-repeat="genre in vm.records.genres" value="{{genre.genre_id}}">{{genre.name}}</option>
             </select>
-            <input type="number" placeholder="released (ex. 1977)" ng-model="vm.recordToAdd.release_year">
-            <input type="number" placeholder="length (minutes)" ng-model="vm.recordToAdd.run_time">
+            <select ng-model="vm.recordToAdd.release_year">
+                    <!-- not selected / blank option -->
+                    <option value="">Release Year</option>
+                    <!-- repeat over genres -->
+                    <option ng-repeat="year in vm.years.list">{{year}}</option>
+            </select>
+            <select ng-model="vm.recordToAdd.run_time">
+                    <!-- not selected / blank option -->
+                    <option value="">Length (Minutes)</option>
+                    <!-- repeat over genres -->
+                    <option ng-repeat="minute in vm.minutes.list">{{minute}}</option>
+            </select>
             <input type="text" placeholder="image url" ng-model="vm.recordToAdd.album_img">
         <md-button class="mainButtonText" type="submit" ng-click="vm.changeView()">Submit</md-button>
         <md-button class="mainButtonText" type="submit" ng-click="vm.changeView()">Cancel</md-button>
@@ -23,6 +33,7 @@
         <em>{{vm.recordToAdd.title}}</em></span><br>
     {{vm.recordToAdd.release_year}}<br>
     {{vm.recordToAdd.run_time}}<br>
+    <!-- <div flex><img class="albumArt" ng-src="{{recordToAdd.album_img}}"></div> -->
 </section>
 
 <section id="collection" ng-if="!vm.adding">
@@ -46,14 +57,19 @@
                 <option ng-repeat="genre in vm.records.genres" value="{{genre.genre_id}}">{{genre.name}}</option>
         </select>
         <div ng-if="!edit" style="font-size:12px">{{record.release_year}}</div>
-        <div>
-            <input  type="number" ng-model="record.release_year" ng-if="edit">
-        </div>
+        <select ng-model="record.release_year" ng-if="edit">
+                <!-- not selected / blank option -->
+                <option value="{{record.release_year}}">{{record.release_year}}</option>
+                <!-- repeat over genres -->
+                <option ng-repeat="year in vm.years.list">{{year}}</option>
+        </select>
         <div ng-if="!edit" style="font-size:12px">{{record.run_time}} Minutes</div>
-        <div>
-            <input  type="number" ng-model="record.run_time" ng-if="edit">
-        </div>
-        <!-- <div ng-if="!edit" style="font-size:12px">{{record.album_img}</div> -->
+        <select ng-model="record.run_time" ng-if="edit">
+                <!-- not selected / blank option -->
+                <option value="{{record.run_time}}">{{record.run_time}}</option>
+                <!-- repeat over genres -->
+                <option ng-repeat="minute in vm.minutes.list">{{minute}}</option>
+        </select>
         <div>
             <input  type="text" ng-model="record.album_img" ng-if="edit">
         </div>
@@ -61,7 +77,7 @@
             <md-button class="material-icons" ng-click="vm.deleteRecord(record); edit=false">&#xE872;</md-button>
             <md-button class="material-icons" ng-show="!edit" ng-click="edit = true">&#xE85D;</md-button>
             <md-button class="material-icons" ng-show="edit" ng-click="vm.editRecord(record); edit=false">&#xE876;</md-button>
-            <md-button class="material-icons" ng-show="edit" ng-click="edit = false">&#xE14C;</md-button>
+            <md-button class="material-icons" ng-show="edit" ng-click="edit = true">&#xE14C;</md-button>
         </div>
     </div>
 </section>
