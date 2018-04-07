@@ -1,5 +1,23 @@
+<input type="text" placeholder="Genre" ng-model="vm.genreToAdd" style="margin-left: 20px">
+<md-button class="mainButtonText" ng-click="vm.addGenre(vm.genreToAdd)">Create Genre</md-button>
+    <br>
+    <div id="genresDisplay" ng-repeat ="genre in vm.records.genres | orderBy:genre" layout="column" class="recordDiv" flex>
+        <div ng-show="edit"><input type="text" ng-model="genre.name"></div>
+        <div ng-show="!edit"> {{genre.name}} ( {{genre.count}} ) </div>
+        <div ng-repeat="img in genre.string_agg">
+            {{img}}
+        </div>
+        <div class="genreBtnDiv">
+            <md-button class="material-icons" ng-click="vm.deleteGenre(genre)">&#xE872;</md-button>
+            <md-button class="material-icons" ng-show="edit" ng-click="vm.editGenre(genre); edit=false">&#xE876;</md-button>
+            <md-button class="material-icons" ng-show="edit" ng-click="edit = false">&#xE14C;</md-button>
+            <md-button class="material-icons" ng-show="!edit" ng-click="edit = true">&#xE85D;</md-button>
+        </div>
+    </div>
 
-    <input type="text" placeholder="Genre" ng-model="vm.genreToAdd" style="margin-left: 20px">
+    
+    
+    <!-- <input type="text" placeholder="Genre" ng-model="vm.genreToAdd" style="margin-left: 20px">
     <md-button class="mainButtonText" ng-click="vm.addGenre(vm.genreToAdd)">Create Genre</md-button>
     <table>
         <thead>
@@ -20,4 +38,4 @@
             </tr>
 
         </tbody>
-    </table>
+    </table> -->
