@@ -5,6 +5,7 @@
     background-color: beige;
     padding: 20px;
     margin: 10px;
+    width: 230px;
     text-align: center;
 }
 
@@ -20,7 +21,7 @@ section {
 .albumArt {
     height: 150px;
     width: 150px;
-    padding: 30px;
+    padding-bottom: 10px;
 }
 
 span {
@@ -64,8 +65,8 @@ button {
 
 
 nav {
-    width: 100%;
-    margin: 0 auto 20px auto;
+    width: 96%;
+    /* margin: 0 auto 20px auto; */
     text-align: center;
     font-size: 25px;
     background-image: url('images/albums.jpg');

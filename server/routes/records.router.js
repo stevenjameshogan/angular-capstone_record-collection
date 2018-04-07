@@ -2,14 +2,25 @@ const router = require('express').Router();
 const pool = require('../modules/pool');
 
 router.get('/', (req, res) => {
-    const queryText = `SELECT records.id, records.title, records.artist, records.release_year, records.run_time, records.album_img, 
-    genres.name as "genre_name" FROM records JOIN genres ON records.genre_id = genres.genre_id;`;
-    pool.query(queryText).then((result) => {
-        res.send(result.rows);
-    }).catch((error) => {
-        console.log('Error getting records');
-        res.sendStatus(500);
-    })
+    if (req.query.q === undefined){
+        const queryText = `SELECT records.id, records.title, records.artist, records.release_year, records.run_time, records.album_img, 
+        genres.name as "genre_name" FROM records JOIN genres ON records.genre_id = genres.genre_id;`;
+        pool.query(queryText).then((result) => {
+            res.send(result.rows);
+        }).catch((error) => {
+            console.log('Error getting records');
+            res.sendStatus(500);
+        })
+    } else {
+        const queryText = `SELECT records.id, records.title, records.artist, records.release_year, records.run_time, records.album_img, 
+        genres.name as "genre_name" FROM records JOIN genres ON records.genre_id = genres.genre_id;`;
+        pool.query(queryText).then((result) => {
+            res.send(result.rows);
+        }).catch((error) => {
+            console.log('Error getting records');
+            res.sendStatus(500);
+        })
+    }
 })
 
 router.post('/', (req, res) => {

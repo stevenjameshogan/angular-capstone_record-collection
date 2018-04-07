@@ -83,6 +83,15 @@ collectionApp.service('CollectionService', ['$http', function($http){
         
     }
 
+    self.searchRecords = function(searchQ){
+        console.log('in search', searchQ);
+        
+        $http.get(`/records/?q=${searchQ}`).then((response) => {
+            self.records.collection = response.data;
+        }).catch((error) => {
+            console.log('Error getting record', error);
+        });
+    };
 
     self.getRecords();
     self.getGenres();
