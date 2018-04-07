@@ -34,6 +34,7 @@ input {
 body {
     font-family: 'Dosis', sans-serif;
     font-weight: 900;
+    width: 1700px;
     height: 3000px;
     background-image: url('images/vinyl.jpg');
     background-repeat: repeat;
