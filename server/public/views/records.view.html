@@ -1,5 +1,5 @@
-<section id="addRecord">
-    <h4>Add Record</h4>
+<md-button class="mainButtonText" ng-show="!vm.adding" ng-click="vm.changeView()">Add Record</md-button>
+<section id="addRecord" ng-show="vm.adding">
     <form ng-submit="vm.addRecord(vm.recordToAdd)">
             <input type="text" placeholder="title" ng-model="vm.recordToAdd.title">
             <input type="text" placeholder="artist" ng-model="vm.recordToAdd.artist">
@@ -12,12 +12,22 @@
             <input type="number" placeholder="released (ex. 1977)" ng-model="vm.recordToAdd.release_year">
             <input type="number" placeholder="length (minutes)" ng-model="vm.recordToAdd.run_time">
             <input type="text" placeholder="image url" ng-model="vm.recordToAdd.album_img">
-        <md-button class="mainButtonText" type="submit">Submit</md-button>
+        <md-button class="mainButtonText" type="submit" ng-click="vm.changeView()">Submit</md-button>
+        <md-button class="mainButtonText" type="submit" ng-click="vm.changeView()">Cancel</md-button>
     </form>
 </section>
 
-<section id="collection">
-    <h4>My Records</h4>
+
+<section>
+    {{vm.recordToAdd.title}}
+    {{vm.recordToAdd.artist}}
+    {{vm.recordToAdd.genre_id}}
+    {{vm.recordToAdd.release_year}}
+    {{vm.recordToAdd.run_time}}
+    {{vm.recordToAdd.album_img}}
+</section>
+
+<section id="collection" ng-if="!vm.adding">
     <input id="search" type="text" placeholder="Search" ng-model="vm.searchQ">
     <span ng-click="vm.getRecords()" class="mainButtonText"></span><br>
     <div ng-repeat ="record in vm.records.collection | filter:vm.searchQ"  layout="column" class="recordDiv" flex>
@@ -30,9 +40,9 @@
         <div>
             <input type="text" ng-model="record.title" ng-if="edit">
         </div>
-        <div ng-if="!edit" style="font-size:12px">{{record.genre_name}}</div>
+        <div class="genreName" ng-if="!edit" style="font-size:12px">{{record.genre_name}}</div>
         <select ng-model="record.genre_id" ng-if="edit">
-  em              <!-- not selected / blank option -->
+                <!-- not selected / blank option -->
                 <option value="{{record.genre_id}}">{{record.genre_name}}</option>
                 <!-- repeat over genres -->
                 <option ng-repeat="genre in vm.records.genres" value="{{genre.genre_id}}">{{genre.name}}</option>
@@ -46,9 +56,9 @@
             <input  type="number" ng-model="record.run_time" ng-if="edit">
         </div>
         <div class="buttonsDiv"> 
+            <md-button class="material-icons" ng-click="vm.deleteRecord(record); edit=false">&#xE872;</md-button>
             <md-button class="material-icons" ng-show="!edit" ng-click="edit = true">&#xE85D;</md-button>
             <md-button class="material-icons" ng-show="edit" ng-click="vm.editRecord(record); edit=false">&#xE876;</md-button>
-            <md-button class="material-icons" ng-click="vm.deleteRecord(record); edit=false">&#xE872;</md-button>
         </div>
     </div>
 </section>

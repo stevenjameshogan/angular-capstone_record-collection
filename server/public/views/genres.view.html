@@ -12,9 +12,9 @@
                 <td ng-show="!edit">{{genre.name}}</td>
                 <td>{{genre.count}}</td>
                 <td>
-                    <md-button class="buttonText" ng-click="vm.deleteGenre(genre)">Delete</md-button>
-                    <md-button class="buttonText" ng-show="!edit" ng-click="edit = true">Edit</md-button>
-                    <md-button class="buttonText" ng-show="edit" ng-click="vm.editGenre(genre); edit=false">Save</md-button>
+                    <md-button class="material-icons" ng-click="vm.deleteGenre(genre)">&#xE872;</md-button>
+                    <md-button class="material-icons" ng-show="edit" ng-click="vm.editGenre(genre); edit=false">&#xE876;</md-button>
+                    <md-button class="material-icons" ng-show="!edit" ng-click="edit = true">&#xE85D;</md-button>
                 </td>
             </tr>
 
