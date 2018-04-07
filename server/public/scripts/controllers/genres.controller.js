@@ -19,7 +19,6 @@ collectionApp.controller('GenresController', ['CollectionService', function(Coll
         if (genreToDelete.count == 0){
             CollectionService.deleteGenre(genreToDelete);
         } else {
-            console.log(`Can't delete!`);
             alert('Cannot delete genre with active records!')
         }
     }

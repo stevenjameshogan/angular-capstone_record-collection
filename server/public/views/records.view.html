@@ -23,7 +23,7 @@
             </select>
             <input type="text" placeholder="image url" ng-model="vm.recordToAdd.album_img">
         <md-button class="mainButtonText" type="submit" ng-click="vm.changeView()">Submit</md-button>
-        <md-button class="mainButtonText" type="submit" ng-click="vm.changeView()">Cancel</md-button>
+        <md-button class="mainButtonText" ng-click="vm.changeView()">Cancel</md-button>
     </form>
 </section>
 
@@ -38,9 +38,11 @@
 
 <section id="collection" ng-if="!vm.adding">
     <input id="search" type="text" placeholder="Search" ng-model="vm.searchQ">
-    <span ng-click="vm.getRecords()" class="mainButtonText"></span><br>
-    <div ng-repeat ="record in vm.records.collection | filter:vm.searchQ"  layout="column" class="recordDiv" flex>
-        <div flex><img class="albumArt" ng-src="{{record.album_img}}"></div>
+    <br>
+    <div ng-repeat ="record in vm.records.collection | filter:vm.searchQ" layout="column" class="recordDiv" flex>
+
+        <div flex><img class="albumArt" ng-src="{{record.album_img}}" ng-click="vm.popUpRecord($event, record)"></div>
+
         <div flex ng-if="!edit" style="font-size:23px"><strong>{{record.artist}}</strong></div>
         <div>
             <input  type="text" ng-model="record.artist" ng-if="edit">
@@ -77,7 +79,7 @@
             <md-button class="material-icons" ng-click="vm.deleteRecord(record); edit=false">&#xE872;</md-button>
             <md-button class="material-icons" ng-show="!edit" ng-click="edit = true">&#xE85D;</md-button>
             <md-button class="material-icons" ng-show="edit" ng-click="vm.editRecord(record); edit=false">&#xE876;</md-button>
-            <md-button class="material-icons" ng-show="edit" ng-click="edit = true">&#xE14C;</md-button>
+            <md-button class="material-icons" ng-show="edit" ng-click="edit = false">&#xE14C;</md-button>
         </div>
     </div>
 </section>
