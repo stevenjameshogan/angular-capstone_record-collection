@@ -9,7 +9,6 @@ collectionApp.controller('RecordsController', ['CollectionService', function(Col
     self.records = CollectionService.records;
     self.getRecords = CollectionService.getRecords;
     self.getGenres = CollectionService.getGenres;
-    self.searchRecords = CollectionService.searchRecords;
 
 
     self.addRecord =function(recordToAdd){

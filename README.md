@@ -55,4 +55,17 @@ TASK LIST - FRIDAY
     [x] - Create PUT GENRES route on server side
     [x] - Create PUT GENRES route on client side
     [x] - Basic styling
-    [] - Create search filter
+    [x] - Create search filter
+
+TASK LIST - SATURDAY
+
+    [] - Replace edit/delete buttons with icons (records)
+    [] - Angular Dialog
+        [] - Adding records
+        [] - Deleting records, genres
+        [] - Editing , genres
+        [] - POST route/like David's
+    [] - Favorite route/db/icon
+    [] - API connect, display on DOM
+    [] - Add comments
+    [] - Cleanup CSS
