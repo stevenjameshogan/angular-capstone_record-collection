@@ -1,6 +1,6 @@
 
     <input type="text" placeholder="Create Genre" ng-model="vm.genreToAdd">
-    <button ng-click="vm.addGenre(vm.genreToAdd)">Create</button>
+    <md-button class="mainButtonText" ng-click="vm.addGenre(vm.genreToAdd)">Create</md-button>
     <table>
         <thead>
             <tr><th>Genre</th><th>Total Records</th><th>Actions</th></tr>
@@ -12,9 +12,9 @@
                 <td ng-show="!edit">{{genre.name}}</td>
                 <td>{{genre.count}}</td>
                 <td>
-                    <button ng-click="vm.deleteGenre(genre)">Delete</button>
-                    <button ng-show="!edit" ng-click="edit = true">Edit</button>
-                    <button ng-show="edit" ng-click="vm.editGenre(genre); edit=false">Save</button>
+                    <md-button class="buttonText" ng-click="vm.deleteGenre(genre)">Delete</md-button>
+                    <md-button class="buttonText" ng-show="!edit" ng-click="edit = true">Edit</md-button>
+                    <md-button class="buttonText" ng-show="edit" ng-click="vm.editGenre(genre); edit=false">Save</md-button>
                 </td>
             </tr>
 

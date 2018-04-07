@@ -19,7 +19,7 @@ section {
 .albumArt {
     height: 150px;
     width: 150px;
-    padding: 5px;
+    padding: 30px;
 }
 
 span {
@@ -132,6 +132,10 @@ th {
     padding: 5px;
 }
 
+.mainButtonText {
+    font-size: 24px;
+    color: beige;
+}
 .buttonText {
-    font-size: 25px;
+    font-size: 17px;
 }

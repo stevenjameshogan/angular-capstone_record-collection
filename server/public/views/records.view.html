@@ -1,20 +1,20 @@
 <section id="addRecord">
     <h4>Add a Record</h4>
     <form ng-submit="vm.addRecord(vm.recordToAdd)">
-        <md-input-container>
-            <span>Title</span><input type="text" placeholder="title" ng-model="vm.recordToAdd.title">
-            <span>Artist</span><input type="text" placeholder="artist" ng-model="vm.recordToAdd.artist">
-            </span><select ng-model="vm.recordToAdd.genre_id">
+        <!-- <md-input-container> -->
+            <input type="text" placeholder="title" ng-model="vm.recordToAdd.title">
+            <input type="text" placeholder="artist" ng-model="vm.recordToAdd.artist">
+            <select ng-model="vm.recordToAdd.genre_id">
                     <!-- not selected / blank option -->
-                    <option value="">Select Genre</option>
+                    <option value="">Genre</option>
                     <!-- repeat over genres -->
                     <option ng-repeat="genre in vm.records.genres" value="{{genre.genre_id}}">{{genre.name}}</option>
             </select>
-            <span>Release Year</span><input type="number" placeholder="ex. 1977" ng-model="vm.recordToAdd.release_year">
-            <span>Length</span><input type="number" placeholder="minutes" ng-model="vm.recordToAdd.run_time"><br>
-            <span>Album Art</span><input type="text" placeholder="url" ng-model="vm.recordToAdd.album_img">
-        <md-button class="buttonText" type="submit">Submit</md-button>
-    </md-input-container>
+            <input type="number" placeholder="released (ex. 1977)" ng-model="vm.recordToAdd.release_year">
+            <input type="number" placeholder="minutes (ex. 47)" ng-model="vm.recordToAdd.run_time"><br>
+            <input type="text" placeholder="album art url" ng-model="vm.recordToAdd.album_img">
+        <md-button class="mainButtonText" type="submit">Submit</md-button>
+    <!-- </md-input-container> -->
     </form>
 </section>
 
@@ -22,6 +22,7 @@
 <section id="collection">
     <h4>My Collection</h4>
     <div ng-repeat ="record in vm.records.collection"  orderBy:vm.orderBy class="recordDiv">
+        <div><img class="albumArt" ng-src="{{record.album_img}}"></div>
         <div ng-if="!edit">{{record.title}}</div>
         <div>
             <input type="text" ng-model="record.title" ng-if="edit">
@@ -45,14 +46,10 @@
         <div>
             <input  type="number" ng-model="record.run_time" ng-if="edit">
         </div>
-        <div><img class="albumArt" ng-src="{{record.album_img}}"></div>
-        <div>
-            <input type="text" ng-model="record.album_img" ng-if="edit">
-        </div>
         <div class="buttonsDiv">
-            <button class="buttonText" ng-show="!edit" ng-click="edit = true">Edit</button>
-            <button class="buttonText" ng-show="edit" ng-click="vm.editRecord(record); edit=false">Save</button>
-            <button class="buttonText" ng-click="vm.deleteRecord(record); edit=false">Delete</button>
+            <md-button class="buttonText" ng-show="!edit" ng-click="edit = true">Edit</md-button>
+            <md-button class="buttonText" ng-show="edit" ng-click="vm.editRecord(record); edit=false">Save</md-button>
+            <md-button class="buttonText" ng-click="vm.deleteRecord(record); edit=false">Delete</md-button>
         </div>
     </div>
 </section>
