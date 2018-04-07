@@ -1,5 +1,5 @@
 <section id="addRecord">
-    <h4>Add a Record</h2>
+    <h4>Add a Record</h4>
     <form ng-submit="vm.addRecord(vm.recordToAdd)">
         <span>Title</span><input type="text" placeholder="title" ng-model="vm.recordToAdd.title">
         <span>Artist</span><input type="text" placeholder="artist" ng-model="vm.recordToAdd.artist">
@@ -10,7 +10,7 @@
                 <option ng-repeat="genre in vm.records.genres" value="{{genre.genre_id}}">{{genre.name}}</option>
         </select>
         <span>Release Year</span><input type="number" placeholder="ex. 1977" ng-model="vm.recordToAdd.release_year">
-        <span>Length</span><input type="number" placeholder="minutes" ng-model="vm.recordToAdd.run_time">
+        <span>Length</span><input type="number" placeholder="minutes" ng-model="vm.recordToAdd.run_time"><br>
         <span>Album Art</span><input type="text" placeholder="url" ng-model="vm.recordToAdd.album_img">
         <input type="submit">
     </form>
@@ -18,7 +18,7 @@
 
 
 <section id="collection">
-    <h4>My Collection</h2>
+    <h4>My Collection</h4>
     <div ng-repeat="record in vm.records.collection" class="recordDiv">
         <div ng-if="!edit">{{record.title}}</div>
         <div>

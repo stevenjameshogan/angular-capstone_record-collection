@@ -1,22 +1,22 @@
-<h2>Genres</h2>
-<span>Create Genre</span><input type="text" placeholder="genre" ng-model="vm.genreToAdd">
-<button ng-click="vm.addGenre(vm.genreToAdd)">Create</button>
-<table>
-    <thead>
-        <tr><th>Genre</th><th>Total Records</th><th>Actions</th></tr>
-    </thead>
-    <tbody>
 
-        <tr ng-repeat="genre in vm.records.genres">
-            <td ng-show="edit"><input type="text" ng-model="genre.name"></td>
-            <td ng-show="!edit">{{genre.name}}</td>
-            <td>{{genre.count}}</td>
-            <td>
-                <button ng-click="vm.deleteGenre(genre)">Delete</button>
-                <button ng-show="!edit" ng-click="edit = true">Edit</button>
-                <button ng-show="edit" ng-click="vm.editGenre(genre); edit=false">Save</button>
-            </td>
-        </tr>
+    <input type="text" placeholder="Create Genre" ng-model="vm.genreToAdd">
+    <button ng-click="vm.addGenre(vm.genreToAdd)">Create</button>
+    <table>
+        <thead>
+            <tr><th>Genre</th><th>Total Records</th><th>Actions</th></tr>
+        </thead>
+        <tbody>
 
-    </tbody>
-</table>
+            <tr ng-repeat="genre in vm.records.genres">
+                <td ng-show="edit"><input type="text" ng-model="genre.name"></td>
+                <td ng-show="!edit">{{genre.name}}</td>
+                <td>{{genre.count}}</td>
+                <td>
+                    <button ng-click="vm.deleteGenre(genre)">Delete</button>
+                    <button ng-show="!edit" ng-click="edit = true">Edit</button>
+                    <button ng-show="edit" ng-click="vm.editGenre(genre); edit=false">Save</button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
