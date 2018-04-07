@@ -5,6 +5,7 @@
     background-color: beige;
     padding: 20px;
     margin: 10px;
+    text-align: center;
 }
 
 #genreDiv {
@@ -26,8 +27,10 @@ span {
     padding: 10px;
 }
 
-input {
+input, select {
     margin: 5px;
+    font-family: 'Dosis', sans-serif;
+    font-weight: 900;
     background-color: beige;
 }
 
@@ -35,6 +38,7 @@ body {
     font-family: 'Dosis', sans-serif;
     font-weight: 900;
     height: 3000px;
+    /* width: 1500px; */
     background-image: url('images/vinyl.jpg');
     background-repeat: repeat;
 }
@@ -43,7 +47,7 @@ main {
     padding-left: 50px;
     padding-right: 50px;
     padding-top: 20px;
-    height: 1px;
+    /* height: 1px; */
 }
 .featureDiv {
     float: left;
@@ -78,7 +82,7 @@ nav ul {
 nav ul li {
     display: inline-block;
     text-align: center;
-    margin-left: 100px;
+    /* margin-left: 100px; */
     border: 5px solid black;
 }
 
@@ -98,7 +102,7 @@ nav ul li a {
 
 
 table {
-    width: 100%;
+    width: 90%;
     margin: 20px;
     text-align: center;
     border-collapse: collapse; 
@@ -120,11 +124,13 @@ h2 {
     font-size: 35px;
 }
 h4 {
-    width: 200px;
-    font-size: 22px;
+    width: 180px;
+    font-size: 20px;
     outline: .25px solid beige;
-    padding: 3px;
+    margin-left: 12px;
     text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 th {
@@ -138,4 +144,5 @@ th {
 }
 .buttonText {
     font-size: 17px;
+    margin: 0px;
 }

@@ -1,5 +1,5 @@
 <section id="addRecord">
-    <h4>Add a Record</h4>
+    <h4>Add Record</h4>
     <form ng-submit="vm.addRecord(vm.recordToAdd)">
         <!-- <md-input-container> -->
             <input type="text" placeholder="title" ng-model="vm.recordToAdd.title">
@@ -11,8 +11,8 @@
                     <option ng-repeat="genre in vm.records.genres" value="{{genre.genre_id}}">{{genre.name}}</option>
             </select>
             <input type="number" placeholder="released (ex. 1977)" ng-model="vm.recordToAdd.release_year">
-            <input type="number" placeholder="minutes (ex. 47)" ng-model="vm.recordToAdd.run_time"><br>
-            <input type="text" placeholder="album art url" ng-model="vm.recordToAdd.album_img">
+            <input type="number" placeholder="length (minutes)" ng-model="vm.recordToAdd.run_time">
+            <input type="text" placeholder="image url" ng-model="vm.recordToAdd.album_img">
         <md-button class="mainButtonText" type="submit">Submit</md-button>
     <!-- </md-input-container> -->
     </form>
@@ -21,15 +21,15 @@
 
 <section id="collection">
     <h4>My Collection</h4>
-    <div ng-repeat ="record in vm.records.collection"  orderBy:vm.orderBy class="recordDiv">
-        <div><img class="albumArt" ng-src="{{record.album_img}}"></div>
+    <div ng-repeat ="record in vm.records.collection"  layout="column" class="recordDiv" flex>
+        <div flex ><img class="albumArt" ng-src="{{record.album_img}}"></div>
+        <div flex ng-if="!edit">{{record.artist}}</div>
+        <div>
+            <input  type="text" ng-model="record.artist" ng-if="edit">
+        </div>
         <div ng-if="!edit">{{record.title}}</div>
         <div>
             <input type="text" ng-model="record.title" ng-if="edit">
-        </div>
-        <div ng-if="!edit">{{record.artist}}</div>
-        <div>
-            <input  type="text" ng-model="record.artist" ng-if="edit">
         </div>
         <div ng-if="!edit">{{record.genre_name}}</div>
         <select ng-model="record.genre_id" ng-if="edit">
