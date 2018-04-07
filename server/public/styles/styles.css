@@ -28,7 +28,7 @@ span {
 }
 
 input, select {
-    margin: 5px;
+    margin-left: 11px;
     font-family: 'Dosis', sans-serif;
     font-weight: 900;
     background-color: beige;
@@ -145,4 +145,13 @@ th {
 .buttonText {
     font-size: 17px;
     margin: 0px;
+}
+
+form,  {
+    margin-left: 8px;
+}
+
+#search {
+    margin-left: 11px;
+    margin-top:0px;
 }

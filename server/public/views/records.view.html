@@ -18,9 +18,10 @@
     </form>
 </section>
 
-
 <section id="collection">
     <h4>My Collection</h4>
+    <input id="search" type="text" placeholder="Search"><md-button class="mainButtonText">Go</md-button><br>
+
     <div ng-repeat ="record in vm.records.collection"  layout="column" class="recordDiv" flex>
         <div flex ><img class="albumArt" ng-src="{{record.album_img}}"></div>
         <div flex ng-if="!edit">{{record.artist}}</div>
