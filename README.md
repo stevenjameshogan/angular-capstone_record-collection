@@ -59,7 +59,9 @@ TASK LIST - FRIDAY
 
 TASK LIST - SATURDAY
 
-    [] - Replace edit/delete buttons with icons (records)
+    [x] - Replace edit/delete buttons with icons (records)
+    [] - Dummy image if no URL
+    [] - Add tool tips
     [] - Angular Dialog
         [] - Adding records
         [] - Deleting records, genres

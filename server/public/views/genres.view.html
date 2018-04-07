@@ -1,6 +1,6 @@
 
-    <input type="text" placeholder="Create Genre" ng-model="vm.genreToAdd" style="margin-left: 20px">
-    <md-button class="mainButtonText" ng-click="vm.addGenre(vm.genreToAdd)">Create</md-button>
+    <input type="text" placeholder="Genre" ng-model="vm.genreToAdd" style="margin-left: 20px">
+    <md-button class="mainButtonText" ng-click="vm.addGenre(vm.genreToAdd)">Create Genre</md-button>
     <table>
         <thead>
             <tr><th>Genre</th><th>Total Records</th><th>Actions</th></tr>
@@ -14,6 +14,7 @@
                 <td>
                     <md-button class="material-icons" ng-click="vm.deleteGenre(genre)">&#xE872;</md-button>
                     <md-button class="material-icons" ng-show="edit" ng-click="vm.editGenre(genre); edit=false">&#xE876;</md-button>
+                    <md-button class="material-icons" ng-show="edit" ng-click="edit = false">&#xE14C;</md-button>
                     <md-button class="material-icons" ng-show="!edit" ng-click="edit = true">&#xE85D;</md-button>
                 </td>
             </tr>

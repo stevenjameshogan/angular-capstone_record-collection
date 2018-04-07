@@ -141,6 +141,7 @@ th {
 .mainButtonText {
     font-size: 24px;
     color: beige;
+    padding: 15px;
 }
 .buttonText {
     font-size: 17px;
