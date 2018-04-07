@@ -50,9 +50,9 @@ TASK LIST - THURSDAY
 TASK LIST - FRIDAY
 
     [x] - Get genres showing on DOM
-    [] - Create PUT RECORDS route on server side
-    [] - Create PUT RECORDS route on client side
-    [] - Create PUT GENRES route on server side
-    [] - Create PUT GENRES route on client side
+    [x] - Create PUT RECORDS route on server side
+    [x] - Create PUT RECORDS route on client side
+    [x] - Create PUT GENRES route on server side
+    [x] - Create PUT GENRES route on client side
     [] - Basic styling
     [] - Spend 2 hours on API connection
