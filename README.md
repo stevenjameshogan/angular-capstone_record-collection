@@ -54,5 +54,5 @@ TASK LIST - FRIDAY
     [x] - Create PUT RECORDS route on client side
     [x] - Create PUT GENRES route on server side
     [x] - Create PUT GENRES route on client side
-    [] - Basic styling
-    [] - Spend 2 hours on API connection
+    [x] - Basic styling
+    [] - Create search filter
