@@ -62,13 +62,12 @@ TASK LIST - SATURDAY
     [x] - Replace edit/delete buttons with icons (records)
     [x] - Dropdowns for length and year
     [x] - Cancel quirks (X button on cancel edit record, cancel button on add record)
-    [] - Create popups
-        [] - Records
-        [] - Genres
+    [x] - Create popups
+        [x] - Records
+        [x] - Genres
     [] - Submission/Delete Dialog
         [] - Adding record
         [] - Editing record
-        [] 
     [] - Favorite route/db/icon
     [] - Edit record dummy logic
 

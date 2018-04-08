@@ -67,6 +67,10 @@ body {
     color: black
 }
 
+.buttonsDiv {
+    padding: 0px;
+}
+
 section {
     color: beige;
 }
@@ -203,4 +207,9 @@ form,  {
 #search {
     margin-left: 11px;
     margin-top: 5px;
+}
+
+.material-icons.md-36 { 
+    padding: 10px;
+    font-size: 36px; 
 }
