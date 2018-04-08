@@ -55,6 +55,7 @@ section {
     height: 150px;
     width: 150px;
     padding-top: 10px;
+    cursor: pointer;
 }
 .previewArt {
     height: 250px;
