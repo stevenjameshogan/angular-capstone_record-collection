@@ -10,10 +10,8 @@ body {
 .recordDiv {
     float: left;
     color: black;
-    /* border: .25px solid black; */
-    /* background-color: beige; */
     padding: 5px;
-    margin: 15px;
+    margin: 10px;
    
 }
 
