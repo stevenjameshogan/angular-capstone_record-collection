@@ -64,9 +64,9 @@
             <input  type="text" ng-model="record.album_img" ng-if="edit">
         </div>
         <div class="buttonsDiv"> 
-            <md-button class="material-icons" ng-click="vm.deleteRecord(record); edit=false">&#xE872;</md-button>
+            <md-button class="material-icons" ng-click="vm.deleteRecord(record); answer; edit=false">&#xE872;</md-button>
             <md-button class="material-icons" ng-show="!edit" ng-click="edit = true">&#xE85D;</md-button>
-            <md-button class="material-icons" ng-show="edit" ng-click="vm.editRecord(record); edit=false">&#xE876;</md-button>
+            <md-button class="material-icons" ng-show="edit" ng-click="vm.editRecord(record); answer; edit=false">&#xE876;</md-button>
             <md-button class="material-icons" ng-show="edit" ng-click="edit = false">&#xE14C;</md-button>
         </div>
     </div>
