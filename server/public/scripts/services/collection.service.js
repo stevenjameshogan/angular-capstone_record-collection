@@ -1,5 +1,5 @@
 // Connect $http functionality
-collectionApp.service('CollectionService', ['$http', '$mdToast','$mdDialog', function($http, $mdToast, $mdDialog){
+collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', function($http, $mdDialog, $mdToast){
     console.log('service is loaded');
 
     const self = this;
@@ -50,20 +50,34 @@ collectionApp.service('CollectionService', ['$http', '$mdToast','$mdDialog', fun
         $http.post('/genres', {genre: genreToAdd} ).then((response) => {
             self.getRecords();
             self.getGenres();
-            self.showToast('Record added!');
+            self.showToast('Genre added!');
         }).catch((error) => {
             console.log('Error adding genre!');
         })
     }
 
-    self.deleteRecord = function(recordToDelete) {
-        $mdDialog.hide();
-        $http.delete(`/records/${recordToDelete.id}`).then((response) => {
-            self.getRecords();
-            self.getGenres();
-        }).catch((error) => {
-            console.log('error deleting', error);
-        })
+    self.deleteRecord = function(ev, recordToDelete) {
+        // Create the dialog
+        var confirm = $mdDialog.confirm()
+                .title('Are you sure you want to delete ' + 
+                recordToDelete.title + ' by ' + recordToDelete.artist + '?!')
+                .ariaLabel('You want to delete record?')
+                .targetEvent(ev)
+                .ok('Delete away!') // triggers the .then function below in mdDialog
+                .cancel('No, keep ' + recordToDelete.title); // triggers the .catch function below in mdDialog
+
+        // Display the dialog
+        $mdDialog.show(confirm).then(function() {
+            $http.delete(`/records/${recordToDelete.id}`).then((response) => {
+                self.getRecords();
+                self.getGenres();
+            }).catch((error) => {
+                console.log('error deleting', error);
+            })
+            showToast('We deleted the record!');
+        }, function() {
+            
+        });
     }
     self.deleteGenre = function(genreToDelete){
         $mdDialog.hide();
@@ -103,14 +117,6 @@ collectionApp.service('CollectionService', ['$http', '$mdToast','$mdDialog', fun
         })
         
     }
-
-    self.showToast = function(toastText) {
-        $mdToast.show( // display the toast
-            $mdToast.simple() // build the toast
-              .textContent(toastText) 
-              .hideDelay(2000)
-        );
-    };
 
     self.popUpRecord = function(ev, record) {
         self.records.popUpRec = record;
@@ -159,6 +165,15 @@ collectionApp.service('CollectionService', ['$http', '$mdToast','$mdDialog', fun
           }, function() {
           });
     }
+
+    self.showToast = function(toastText) {
+        $mdToast.show(
+            $mdToast.simple()
+              .textContent(toastText)
+              .hideDelay(4000)
+        );
+    };
+
 
     self.getRecords();
     self.getGenres();

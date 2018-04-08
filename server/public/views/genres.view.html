@@ -1,4 +1,4 @@
-<input type="text" placeholder="Genre" ng-model="vm.genreToAdd" style="margin-left: 20px">
+<input type="text" placeholder="New Genre Name" ng-model="vm.genreToAdd" style="margin-left: 20px">
 <md-button class="mainButtonText" ng-click="vm.addGenre(vm.genreToAdd)">Create Genre</md-button>
     <br>
     <div id="genresDisplay" ng-repeat ="genre in vm.records.genres | orderBy:genre" 
