@@ -66,6 +66,7 @@ collectionApp.service('CollectionService', ['$http', '$mdToast','$mdDialog', fun
         })
     }
     self.deleteGenre = function(genreToDelete){
+        $mdDialog.hide();
         $http.delete(`/genres/${genreToDelete.genre_id}`).then((response) => {
             self.getRecords();
             self.getGenres();
@@ -89,7 +90,7 @@ collectionApp.service('CollectionService', ['$http', '$mdToast','$mdDialog', fun
         })
     }
     self.editGenre = function(genreToEdit){
-        console.log('in edit genre', genreToEdit);
+        $mdDialog.hide();
         $http({
             method: 'PUT',
             url: `/genres/${genreToEdit.genre_id}`,
@@ -141,8 +142,6 @@ collectionApp.service('CollectionService', ['$http', '$mdToast','$mdDialog', fun
     }
 
     self.popUpGenre = function(ev, genre) {
-        console.log('in popupgen');
-        
         self.records.popUpGen = genre;
         console.log( genre, self.records);
         $mdDialog.show({
