@@ -3,7 +3,8 @@
     <br>
     <div id="genresDisplay" ng-repeat ="genre in vm.records.genres | orderBy:genre" layout="column" class="recordDiv" flex>
         <div ng-show="edit"><input type="text" ng-model="genre.name"></div>
-        <div ng-show="!edit"> {{genre.name}} ( {{genre.count}} ) </div>
+        <div ng-show="!edit">{{genre.name}}</div>
+        <div ng-show="!edit">Records: {{genre.count}}</div>
         <br>
         <div class="genreBtnDiv">
             <md-button class="material-icons" ng-click="vm.deleteGenre(genre)">&#xE872;</md-button>
@@ -15,25 +16,3 @@
 
     
     
-    <!-- <input type="text" placeholder="Genre" ng-model="vm.genreToAdd" style="margin-left: 20px">
-    <md-button class="mainButtonText" ng-click="vm.addGenre(vm.genreToAdd)">Create Genre</md-button>
-    <table>
-        <thead>
-            <tr><th>Genre</th><th>Total Records</th><th>Actions</th></tr>
-        </thead>
-        <tbody>
-
-            <tr ng-repeat="genre in vm.records.genres">
-                <td ng-show="edit"><input type="text" ng-model="genre.name"></td>
-                <td ng-show="!edit">{{genre.name}}</td>
-                <td>{{genre.count}}</td>
-                <td>
-                    <md-button class="material-icons" ng-click="vm.deleteGenre(genre)">&#xE872;</md-button>
-                    <md-button class="material-icons" ng-show="edit" ng-click="vm.editGenre(genre); edit=false">&#xE876;</md-button>
-                    <md-button class="material-icons" ng-show="edit" ng-click="edit = false">&#xE14C;</md-button>
-                    <md-button class="material-icons" ng-show="!edit" ng-click="edit = true">&#xE85D;</md-button>
-                </td>
-            </tr>
-
-        </tbody>
-    </table> -->

@@ -10,19 +10,15 @@ body {
 .recordDiv {
     float: left;
     color: black;
-    border: .25px solid black;
-    background-color: beige;
-    padding-left: 8px;
-    padding-right: 8px;
-    padding-bottom: 20px;
-    padding-top: 20px;
-    margin: 10px;
-    width: 230px;
-    text-align: center;
+    /* border: .25px solid black; */
+    /* background-color: beige; */
+    padding: 5px;
+    margin: 15px;
+   
 }
 
 .recordDiv:hover {
-    background-color: #E3EBF6;
+    background-color:beige
 }
 
 #popUpDiv {
@@ -34,13 +30,15 @@ body {
     background-color: beige;
     padding-left: 5px;
     padding-right: 5px;
-    padding-bottom: 10px;
+    padding-bottom: px;
     padding-top: 10px;
     text-align: center;
 }
 
 #genresDisplay {
     font-size: 22px;
+    text-align: center;
+    background-color: beige;
 }
 
 #genresDisplay:hover {
@@ -54,7 +52,7 @@ section {
 .albumArt {
     height: 150px;
     width: 150px;
-    padding-top: 10px;
+    /* padding-top: 10px; */
     cursor: pointer;
 }
 .previewArt {
@@ -162,10 +160,11 @@ th {
 }
 
 .mainButtonText {
-    font-size: 24px;
+    font-size: 30px;
     color: beige;
-    padding: 15px;
+    padding: 10px;
 }
+
 .buttonText {
     font-size: 17px;
     margin: 0px;
@@ -177,5 +176,5 @@ form,  {
 
 #search {
     margin-left: 11px;
-    margin-top:0px;
+    margin-top: 5px;
 }
