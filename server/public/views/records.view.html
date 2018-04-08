@@ -29,7 +29,7 @@
     <!-- <img class="previewArt" ng-src="{{vm.recordToAdd.album_img}}"> -->
 </section>
 
-<section id="collection" ng-if="!vm.adding">
+<section id="collection" ng-show="!vm.adding">
     <md-button class="mainButtonText" ng-show="!vm.adding" ng-click="vm.changeView()">Add New Record</md-button>
     <input id="search" type="text" placeholder="Search" ng-model="vm.searchQ" style="float: right">
     <br>
