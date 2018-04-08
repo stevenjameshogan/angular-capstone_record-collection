@@ -2,15 +2,15 @@ collectionApp.controller('GenresController', ['CollectionService', function(Coll
     console.log('Genres Controller loaded!');
     
     const self = this;
-
+    
     self.genreToAdd = '';
 
     self.records = CollectionService.records;
-    self.getGenres = CollectionService.getGenres;
     self.getRecords = CollectionService.getRecords;
     self.editGenre = CollectionService.editGenre;
-    self.popUpGenre = CollectionService.popUpGenre;
-
+    self.popUpGenre =  CollectionService.popUpGenre;
+    self.is0 = CollectionService.is0;
+        
     self.addGenre = function(genreToAdd){
         CollectionService.addGenre(genreToAdd);
         self.genreToAdd = '';

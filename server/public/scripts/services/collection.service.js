@@ -143,7 +143,11 @@ collectionApp.service('CollectionService', ['$http', '$mdToast','$mdDialog', fun
 
     self.popUpGenre = function(ev, genre) {
         self.records.popUpGen = genre;
-        console.log( genre, self.records);
+        if (genre.count == 0){
+            self.is0 = true;
+        } else {
+            self.is0 = false;
+        }
         $mdDialog.show({
             // controller: 'RecordsController',
             templateUrl: '../../views/genPopUp.view.html',
