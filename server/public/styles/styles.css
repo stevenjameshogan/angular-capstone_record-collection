@@ -36,9 +36,12 @@ body {
 }
 
 #genresDisplay {
+    height: 44px;
+    width: 170px;
     font-size: 22px;
     text-align: center;
     background-color: beige;
+    cursor: pointer;
 }
 
 #genresDisplay:hover {

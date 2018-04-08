@@ -1,0 +1,15 @@
+<div ng-controller="GenresController as vm">
+    <h2>{{vm.records.popUpGen.name}}</h2>
+    <h2>Current Records: {{vm.records.popUpGen.count}}</h2>
+
+    <div class="genreBtnDiv">
+        <md-button class="material-icons" ng-click="vm.deleteGenre(genre)">&#xE872;</md-button>
+        <md-button class="material-icons" ng-show="edit" ng-click="vm.editGenre(genre); edit=false">&#xE876;</md-button>
+        <md-button class="material-icons" ng-show="edit" ng-click="edit = false">&#xE14C;</md-button>
+        <md-button class="material-icons" ng-show="!edit" ng-click="edit = true">&#xE85D;</md-button>
+    </div>
+</div>
+
+
+    
+    

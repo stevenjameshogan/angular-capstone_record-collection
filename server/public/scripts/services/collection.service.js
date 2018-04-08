@@ -128,12 +128,26 @@ collectionApp.service('CollectionService', ['$http', '$mdToast','$mdDialog', fun
     }
 
     self.popUpAddRec = function(ev) {
-        console.log('in add rec popup');
-        
-
         $mdDialog.show({
             // controller: 'RecordsController',
             templateUrl: '../../views/addRecPopUp.view.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose:true,
+          })
+          .then(function(answer) {
+          }, function() {
+          });
+    }
+
+    self.popUpGenre = function(ev, genre) {
+        console.log('in popupgen');
+        
+        self.records.popUpGen = genre;
+        console.log( genre, self.records);
+        $mdDialog.show({
+            // controller: 'RecordsController',
+            templateUrl: '../../views/genPopUp.view.html',
             parent: angular.element(document.body),
             targetEvent: ev,
             clickOutsideToClose:true,
