@@ -1,36 +1,5 @@
-<section id="addRecord" ng-show="vm.adding">
-    <form ng-submit="vm.addRecord(vm.recordToAdd)">
-            <input type="text" placeholder="artist" ng-model="vm.recordToAdd.artist">
-            <input type="text" placeholder="title" ng-model="vm.recordToAdd.title">
-            <select ng-model="vm.recordToAdd.genre_id">
-                    <option value="">Genre</option>
-                    <option ng-repeat="genre in vm.records.genres" value="{{genre.genre_id}}">{{genre.name}}</option>
-            </select>
-            <select ng-model="vm.recordToAdd.release_year">
-                    <option value="">Release Year</option>
-                    <option ng-repeat="year in vm.years.list">{{year}}</option>
-            </select>
-            <select ng-model="vm.recordToAdd.run_time">
-                    <option value="">Length (Minutes)</option>
-                    <option ng-repeat="minute in vm.minutes.list">{{minute}}</option>
-            </select>
-            <input type="text" placeholder="image url" ng-model="vm.recordToAdd.album_img">
-        <md-button class="mainButtonText" type="submit" ng-click="vm.changeView()">Submit</md-button>
-        <md-button class="mainButtonText" ng-click="vm.changeView()">Cancel</md-button>
-    </form>
-</section>
-
-
-<section ng-show="vm.adding">
-    <span style="font-size:23px"><strong>{{vm.recordToAdd.artist}}</strong></span><br>
-    <span>{{vm.recordToAdd.title}}</span><br>
-    <span>{{vm.recordToAdd.release_year}}</span><br>
-    <span>{{vm.recordToAdd.run_time}}</span><br>
-    <!-- <img class="previewArt" ng-src="{{vm.recordToAdd.album_img}}"> -->
-</section>
-
 <section id="collection" ng-show="!vm.adding">
-    <md-button class="mainButtonText" ng-show="!vm.adding" ng-click="vm.changeView()">Add New Record</md-button>
+    <md-button class="mainButtonText" ng-show="!vm.adding" ng-click="vm.popUpAddRec($event)">Add New Record</md-button>
     <input id="search" type="text" placeholder="Search" ng-model="vm.searchQ" style="float: right">
     <br>
     <div ng-repeat ="record in vm.records.collection | filter:vm.searchQ" layout="column" class="recordDiv" flex>

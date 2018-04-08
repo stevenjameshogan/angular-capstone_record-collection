@@ -14,6 +14,7 @@ collectionApp.controller('RecordsController', ['CollectionService','$mdToast', '
     self.getGenres = CollectionService.getGenres;
     self.showToast = CollectionService.showToast;
     self.popUpRecord = CollectionService.popUpRecord;
+    self.popUpAddRec = CollectionService.popUpAddRec;
 
     self.addRecord =function(recordToAdd){
         if (recordToAdd.album_img === ''){
