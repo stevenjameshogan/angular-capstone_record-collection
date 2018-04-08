@@ -47,32 +47,26 @@
         </div>
         <div class="genreName" ng-if="!edit" style="font-size:12px">{{record.genre_name}}</div>
         <select ng-model="record.genre_id" ng-if="edit">
-                <!-- not selected / blank option -->
                 <option value="{{record.genre_id}}">{{record.genre_name}}</option>
-                <!-- repeat over genres -->
                 <option ng-repeat="genre in vm.records.genres" value="{{genre.genre_id}}">{{genre.name}}</option>
         </select>
         <div ng-if="!edit" style="font-size:12px">{{record.release_year}}</div>
         <select ng-model="record.release_year" ng-if="edit">
-                <!-- not selected / blank option -->
                 <option value="{{record.release_year}}">{{record.release_year}}</option>
-                <!-- repeat over genres -->
                 <option ng-repeat="year in vm.years.list">{{year}}</option>
         </select>
         <div ng-if="!edit" style="font-size:12px">{{record.run_time}} Minutes</div>
         <select ng-model="record.run_time" ng-if="edit">
-                <!-- not selected / blank option -->
                 <option value="{{record.run_time}}">{{record.run_time}}</option>
-                <!-- repeat over genres -->
                 <option ng-repeat="minute in vm.minutes.list">{{minute}}</option>
         </select>
         <div>
             <input  type="text" ng-model="record.album_img" ng-if="edit">
         </div>
         <div class="buttonsDiv"> 
-            <md-button class="material-icons" ng-click="vm.deleteRecord(record); edit=false">&#xE872;</md-button>
+            <md-button class="material-icons" ng-click="vm.deleteRecord(record); answer; edit=false">&#xE872;</md-button>
             <md-button class="material-icons" ng-show="!edit" ng-click="edit = true">&#xE85D;</md-button>
-            <md-button class="material-icons" ng-show="edit" ng-click="vm.editRecord(record); edit=false">&#xE876;</md-button>
+            <md-button class="material-icons" ng-show="edit" ng-click="vm.editRecord(record); answer; edit=false">&#xE876;</md-button>
             <md-button class="material-icons" ng-show="edit" ng-click="edit = false">&#xE14C;</md-button>
         </div>
     </div>

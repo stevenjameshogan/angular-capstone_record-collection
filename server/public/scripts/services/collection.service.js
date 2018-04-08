@@ -56,6 +56,7 @@ collectionApp.service('CollectionService', ['$http', '$mdToast','$mdDialog', fun
     }
 
     self.deleteRecord = function(recordToDelete) {
+        $mdDialog.hide();
         $http.delete(`/records/${recordToDelete.id}`).then((response) => {
             self.getRecords();
             self.getGenres();
@@ -73,6 +74,7 @@ collectionApp.service('CollectionService', ['$http', '$mdToast','$mdDialog', fun
     }
 
     self.editRecord = function(recordToEdit){
+        $mdDialog.hide();
         $http({
             method: 'PUT',
             url: `/records/${recordToEdit.id}`,
@@ -80,6 +82,7 @@ collectionApp.service('CollectionService', ['$http', '$mdToast','$mdDialog', fun
         }).then((response) => {
             self.getRecords();
             self.getGenres();
+            self.records.popUpRec = {};
         }).catch((error) => {
             console.log('error updating', error);
         })
@@ -119,7 +122,6 @@ collectionApp.service('CollectionService', ['$http', '$mdToast','$mdDialog', fun
             clickOutsideToClose:true,
           })
           .then(function(answer) {
-            console.log('success');
           }, function() {
           });
     }

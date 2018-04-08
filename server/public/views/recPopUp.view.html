@@ -1,8 +1,37 @@
-<div id="popUpDiv" ng-controller="RecordsController as vm">
+<div id="popUpDiv" ng-controller="RecordsController as vm" ng-if="!vm.adding">
     <img class="popUpArt" ng-src="{{vm.records.popUpRec.album_img}}">
-    <div style="font-size: 35px">{{vm.records.popUpRec.artist}}</div>
-    <div style="font-size: 30px"><em>{{vm.records.popUpRec.title}}</em></div>
-    <div style="font-size: 23px">{{vm.records.popUpRec.genre_name}}</div>
-    <div style="font-size: 18px">{{vm.records.popUpRec.release_year}} - {{vm.records.popUpRec.run_time}} Minutes
+    <div flex ng-if="!edit" style="font-size: 35px">{{vm.records.popUpRec.artist}}</div>
+    <div>
+        <input  type="text" ng-model="vm.records.popUpRec.artist" ng-if="edit">
     </div>
+    <div flex ng-if="!edit" style="font-size: 30px"><em>{{vm.records.popUpRec.title}}</em></div>
+    <div>
+         <input type="text" ng-model="vm.records.popUpRec.title" ng-if="edit">
+    </div>
+    <div class="genreName" ng-if="!edit" style="font-size: 23px">{{vm.records.popUpRec.genre_name}}</div>
+    <select ng-model="vm.records.popUpRec.genre_id" ng-if="edit">
+            <option value="{{vm.records.popUpRec.genre_id}}">{{vm.records.popUpRec.genre_name}}</option>
+            <option ng-repeat="genre in vm.records.genres" value="{{genre.genre_id}}">{{genre.name}}</option>
+    </select>
+    <div ng-if="!edit" style="font-size: 18px">{{vm.records.popUpRec.release_year}}</div>
+    <select ng-model="vm.records.popUpRec.release_year" ng-if="edit">
+            <option value="{{vm.records.popUpRec.release_year}}">{{vm.records.popUpRec.release_year}}</option>
+            <option ng-repeat="year in vm.years.list">{{year}}</option>
+    </select>
+    <div ng-if="!edit" style="font-size: 18px">{{vm.records.popUpRec.run_time}} Minutes</div>
+    <select ng-model="vm.records.popUpRec.run_time" ng-if="edit">
+            <option value="{{vm.records.popUpRec.run_time}}">{{vm.records.popUpRec.run_time}}</option>
+            <option ng-repeat="minute in vm.minutes.list">{{minute}}</option>
+    </select>
+    <div>
+        <input type="text" ng-model="vm.records.popUpRec.album_img" ng-if="edit">
+    </div>
+    <div class="buttonsDiv"> 
+        <md-button class="material-icons" ng-click="vm.deleteRecord(vm.records.popUpRec); edit=false">&#xE872;</md-button>
+        <md-button class="material-icons" ng-show="edit" ng-click="edit = false">&#xE14C;</md-button>
+        <md-button class="material-icons" ng-show="!edit" ng-click="edit = true">&#xE85D;</md-button>
+        <md-button class="material-icons" ng-show="edit" ng-click="vm.editRecord(vm.records.popUpRec); edit=false">&#xE876;</md-button>
+    </div>
+
 </div>
+
