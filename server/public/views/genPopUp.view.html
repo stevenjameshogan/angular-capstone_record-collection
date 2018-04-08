@@ -5,7 +5,7 @@
     <br>
     <div ng-show="edit"><input type="text" ng-model="vm.records.popUpGen.name"></div>
     <div class="genreBtnDiv">
-        <md-button class="material-icons" ng-click="vm.deleteGenre(vm.records.popUpGen)">&#xE872;</md-button>
+        <md-button class="material-icons" ng-show="vm.is0" ng-click="vm.deleteGenre(vm.records.popUpGen)">&#xE872;</md-button>
         <md-button class="material-icons" ng-show="edit" ng-click="vm.editGenre(vm.records.popUpGen); edit=false">&#xE876;</md-button>
         <md-button class="material-icons" ng-show="!edit" ng-click="edit = true">&#xE85D;</md-button>
     </div>
