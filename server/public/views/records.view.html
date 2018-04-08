@@ -4,21 +4,15 @@
             <input type="text" placeholder="artist" ng-model="vm.recordToAdd.artist">
             <input type="text" placeholder="title" ng-model="vm.recordToAdd.title">
             <select ng-model="vm.recordToAdd.genre_id">
-                    <!-- not selected / blank option -->
                     <option value="">Genre</option>
-                    <!-- repeat over genres -->
                     <option ng-repeat="genre in vm.records.genres" value="{{genre.genre_id}}">{{genre.name}}</option>
             </select>
             <select ng-model="vm.recordToAdd.release_year">
-                    <!-- not selected / blank option -->
                     <option value="">Release Year</option>
-                    <!-- repeat over genres -->
                     <option ng-repeat="year in vm.years.list">{{year}}</option>
             </select>
             <select ng-model="vm.recordToAdd.run_time">
-                    <!-- not selected / blank option -->
                     <option value="">Length (Minutes)</option>
-                    <!-- repeat over genres -->
                     <option ng-repeat="minute in vm.minutes.list">{{minute}}</option>
             </select>
             <input type="text" placeholder="image url" ng-model="vm.recordToAdd.album_img">
@@ -28,12 +22,12 @@
 </section>
 
 
-<section ng-show="vm.adding" >
-    <span style="font-size:23px"><strong>{{vm.recordToAdd.artist}}</strong><br>
-        <em>{{vm.recordToAdd.title}}</em></span><br>
-    {{vm.recordToAdd.release_year}}<br>
-    {{vm.recordToAdd.run_time}}<br>
-    <!-- <div flex><img class="albumArt" ng-src="{{recordToAdd.album_img}}"></div> -->
+<section ng-show="vm.adding">
+    <span style="font-size:23px"><strong>{{vm.recordToAdd.artist}}</strong></span><br>
+    <span>{{vm.recordToAdd.title}}</span><br>
+    <span>{{vm.recordToAdd.release_year}}</span><br>
+    <span>{{vm.recordToAdd.run_time}}</span><br>
+    <!-- <img class="previewArt" ng-src="{{vm.recordToAdd.album_img}}"> -->
 </section>
 
 <section id="collection" ng-if="!vm.adding">

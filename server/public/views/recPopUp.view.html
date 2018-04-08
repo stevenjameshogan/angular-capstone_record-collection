@@ -1,8 +1,8 @@
 <div id="popUpDiv" ng-controller="RecordsController as vm">
-    <img class="albumArt" ng-src="{{vm.records.popUpRec.album_img}}">
-    <div>{{vm.records.popUpRec.artist}}</div>
-    <div>{{vm.records.popUpRec.title}}</div>
-    <div>{{vm.records.popUpRec.genre_name}}</div>
-    <div>{{vm.records.popUpRec.release_year}}</div>
-    <div>{{vm.records.popUpRec.run_time}} Minutes</div>
+    <img class="popUpArt" ng-src="{{vm.records.popUpRec.album_img}}">
+    <div style="font-size: 35px">{{vm.records.popUpRec.artist}}</div>
+    <div style="font-size: 30px"><em>{{vm.records.popUpRec.title}}</em></div>
+    <div style="font-size: 23px">{{vm.records.popUpRec.genre_name}}</div>
+    <div style="font-size: 18px">{{vm.records.popUpRec.release_year}} - {{vm.records.popUpRec.run_time}} Minutes
+    </div>
 </div>
