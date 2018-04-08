@@ -60,26 +60,22 @@ TASK LIST - FRIDAY
 TASK LIST - SATURDAY
 
     [x] - Replace edit/delete buttons with icons (records)
-    [] - Dropdowns for length and year
-    [] - Cancel quirsk (X button on cancel edit record, cancel button on add record)
-    [] - Edit record dummy logic
-    [] - Genre divs/cards instead of table?
-        - Display small images of albuma art
-        - Sharper
-        - Rank by most albums
-        - Disable delete icons if has genres
-    [] - Angular Dialog
-        [] - Adding records
-        [] - Deleting records, genres
-        [] - Editing , genres
-        [] - POST route/like David's
+    [x] - Dropdowns for length and year
+    [x] - Cancel quirks (X button on cancel edit record, cancel button on add record)
+    [] - Create popups
+        [] - Records
+        [] - Genres
+    [] - Submission/Delete Dialog
+        [] - Adding record
+        [] - Editing record
+        [] 
     [] - Favorite route/db/icon
-    [] - NAV dropdowns?
+    [] - Edit record dummy logic
 
 
 TASKI LIST - SUNDAY
 
     [] - API connect, display on DOM
+    [] - Add tooltips
     [] - Add comments
     [] - Cleanup CSS
-    [] - Material cards?

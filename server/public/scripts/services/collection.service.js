@@ -1,5 +1,5 @@
 // Connect $http functionality
-collectionApp.service('CollectionService', ['$http', function($http){
+collectionApp.service('CollectionService', ['$http', '$mdToast','$mdDialog', function($http, $mdToast, $mdDialog){
     console.log('service is loaded');
 
     const self = this;
@@ -39,6 +39,7 @@ collectionApp.service('CollectionService', ['$http', function($http){
         $http.post('/records', recordToAdd).then((response) => {
             self.getRecords();
             self.getGenres();
+            self.showToast('Record added!');
         }).catch(function(error){
             console.log('Error adding record!');
         })
@@ -48,6 +49,7 @@ collectionApp.service('CollectionService', ['$http', function($http){
         $http.post('/genres', {genre: genreToAdd} ).then((response) => {
             self.getRecords();
             self.getGenres();
+            self.showToast('Record added!');
         }).catch((error) => {
             console.log('Error adding genre!');
         })
@@ -97,6 +99,30 @@ collectionApp.service('CollectionService', ['$http', function($http){
         
     }
 
+    self.showToast = function(toastText) {
+        $mdToast.show( // display the toast
+            $mdToast.simple() // build the toast
+              .textContent(toastText) 
+              .hideDelay(2000)
+        );
+    };
+
+    self.popUpRecord = function(ev, record) {
+        self.records.popUpRec = record;
+        console.log(record, self.records);
+        
+        $mdDialog.show({
+            // controller: 'RecordsController',
+            templateUrl: '../../views/recPopUp.view.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose:true,
+          })
+          .then(function(answer) {
+            console.log('success');
+          }, function() {
+          });
+    }
 
     self.getRecords();
     self.getGenres();
