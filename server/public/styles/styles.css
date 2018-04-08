@@ -45,6 +45,15 @@ body {
     background-color: #E3EBF6;
 }
 
+#addRecordPopUp {
+    width: 2000px;
+    font-size: 16px;
+    text-align: left;
+    padding: 5px 5px 10px 5px;
+    background-color: beige;
+    color: black
+}
+
 section {
     color: beige;
 }
@@ -56,9 +65,9 @@ section {
     cursor: pointer;
 }
 .previewArt {
-    height: 250px;
-    width: 250px;
-    outline: none;
+    height: 100px;
+    width: 100px;
+    outline-color: beige;
 }
 
 .popUpArt {
@@ -159,6 +168,10 @@ th {
     padding: 5px;
 }
 
+.mainButtonTextBlack {
+    font-size: 30px;
+    color: black;
+}
 .mainButtonText {
     font-size: 30px;
     color: beige;

@@ -36,6 +36,7 @@ collectionApp.service('CollectionService', ['$http', '$mdToast','$mdDialog', fun
     };
 
     self.addRecord = function(recordToAdd) {
+        $mdDialog.hide();
         $http.post('/records', recordToAdd).then((response) => {
             self.getRecords();
             self.getGenres();
@@ -117,6 +118,22 @@ collectionApp.service('CollectionService', ['$http', '$mdToast','$mdDialog', fun
         $mdDialog.show({
             // controller: 'RecordsController',
             templateUrl: '../../views/recPopUp.view.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose:true,
+          })
+          .then(function(answer) {
+          }, function() {
+          });
+    }
+
+    self.popUpAddRec = function(ev) {
+        console.log('in add rec popup');
+        
+
+        $mdDialog.show({
+            // controller: 'RecordsController',
+            templateUrl: '../../views/addRecPopUp.view.html',
             parent: angular.element(document.body),
             targetEvent: ev,
             clickOutsideToClose:true,
