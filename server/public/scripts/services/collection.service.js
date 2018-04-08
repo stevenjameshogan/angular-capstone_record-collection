@@ -80,6 +80,7 @@ collectionApp.service('CollectionService', ['$http', '$mdToast','$mdDialog', fun
         }).then((response) => {
             self.getRecords();
             self.getGenres();
+            self.records.popUpRec = {};
         }).catch((error) => {
             console.log('error updating', error);
         })
