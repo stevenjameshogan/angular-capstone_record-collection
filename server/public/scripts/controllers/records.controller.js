@@ -31,6 +31,7 @@ collectionApp.controller('RecordsController', ['CollectionService','$mdToast', '
     self.deleteRecord = CollectionService.deleteRecord;
     
     self.changeView = function() {
+        console.log('in change view', self.adding);
         self.adding = !self.adding;
     }
 
