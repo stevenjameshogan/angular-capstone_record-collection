@@ -2,7 +2,7 @@
 collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', function($http, $mdDialog, $mdToast){
     const self = this;
 
-    self.records = { collection: [], genres: [] }
+    self.records = { collection: [], genres: [], favorites: [] }
     self.years = {list: [1951, 1952, 1953, 1954, 1955, 1956, 1957, 1958, 1959, 1960, 
         1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1969, 1970, 
         1971, 1972, 1973, 1974, 1975, 1976, 1977, 1978, 1979, 1980, 
@@ -33,6 +33,14 @@ collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', fu
             console.log('Error getting record', error);
         });
     };
+
+    self.getFavorites = function() {
+        $http.get('/favorites').then((response) => {
+            self.records.favorites = response.data;
+        }).catch((error) => {
+            console.log('Error getting favorites', error);
+        });
+    }
 
     self.addRecord = function(recordToAdd) {
         $mdDialog.hide();
@@ -90,6 +98,7 @@ collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', fu
 
     self.editRecord = function(recordToEdit){
         $mdDialog.hide();
+        console.log(recordToEdit);
         $http({
             method: 'PUT',
             url: `/records/${recordToEdit.id}`,
@@ -97,6 +106,7 @@ collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', fu
         }).then((response) => {
             self.getRecords();
             self.getGenres();
+            self.getFavorites();
             self.records.popUpRec = {};
         }).catch((error) => {
             console.log('error updating', error);
@@ -116,11 +126,9 @@ collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', fu
         })
         
     }
-
+    
     self.popUpRecord = function(ev, record) {
         self.records.popUpRec = record;
-        console.log(record, self.records);
-        
         $mdDialog.show({
             // controller: 'RecordsController',
             templateUrl: '../../views/recPopUp.view.html',
@@ -176,5 +184,6 @@ collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', fu
 
     self.getRecords();
     self.getGenres();
+    self.getFavorites();
 
 }]);

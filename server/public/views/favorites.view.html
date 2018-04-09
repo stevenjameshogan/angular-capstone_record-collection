@@ -1,0 +1,6 @@
+<div ng-repeat ="record in vm.records.favorites" layout="column" class="recordDiv" flex>
+
+        <div flex><img class="albumArt" ng-src="{{record.album_img}}" ng-click="vm.popUpRecord($event, record)"></div>
+
+</div>
+
