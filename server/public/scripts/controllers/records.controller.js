@@ -36,4 +36,9 @@ collectionApp.controller('RecordsController', ['CollectionService','$mdToast', '
         self.adding = !self.adding;
     }
 
+    self.editFavorite = function(recordToFav){
+        recordToFav.is_favorite = !recordToFav.is_favorite;
+        CollectionService.editRecord(recordToFav)
+    }
+
 }]);

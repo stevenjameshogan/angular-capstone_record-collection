@@ -36,7 +36,6 @@ collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', fu
 
     self.getFavorites = function() {
         $http.get('/favorites').then((response) => {
-            console.log(response.data);
             self.records.favorites = response.data;
         }).catch((error) => {
             console.log('Error getting favorites', error);
@@ -99,6 +98,7 @@ collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', fu
 
     self.editRecord = function(recordToEdit){
         $mdDialog.hide();
+        console.log(recordToEdit);
         $http({
             method: 'PUT',
             url: `/records/${recordToEdit.id}`,
@@ -106,6 +106,7 @@ collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', fu
         }).then((response) => {
             self.getRecords();
             self.getGenres();
+            self.getFavorites();
             self.records.popUpRec = {};
         }).catch((error) => {
             console.log('error updating', error);
@@ -125,7 +126,7 @@ collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', fu
         })
         
     }
-
+    
     self.popUpRecord = function(ev, record) {
         self.records.popUpRec = record;
         $mdDialog.show({

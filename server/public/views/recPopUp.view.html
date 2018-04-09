@@ -33,9 +33,10 @@
         <md-button class="material-icons md-36" ng-show="!edit" ng-click="edit = true">&#xE85D;</md-button>
         <md-button class="material-icons md-36" ng-show="edit" ng-click="vm.editRecord(vm.records.popUpRec); edit=false">&#xE876;</md-button>
         <md-button class="material-icons md-36" ng-show="!vm.records.popUpRec.is_favorite" ng-click="vm.editFavorite(vm.records.popUpRec); 
-        edit=false">&#xE87E;</md-button>
+        edit=false;">&#xE87E;</md-button>
         <md-button class="material-icons md-36 fav" ng-show="vm.records.popUpRec.is_favorite" ng-click="vm.editFavorite(vm.records.popUpRec); 
         edit=false">&#xE87D;</md-button>
+        
         
     </div>
 </div>

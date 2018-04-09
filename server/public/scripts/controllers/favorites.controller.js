@@ -10,10 +10,7 @@ collectionApp.controller('FavoritesController',
     self.getRecords = CollectionService.getRecords;
     self.getGenres = CollectionService.getGenres;
     self.popUpRecord = CollectionService.popUpRecord;
-
-
     self.editRecord = CollectionService.editRecord;
-
     self.deleteRecord = CollectionService.deleteRecord;
 
 }]);
