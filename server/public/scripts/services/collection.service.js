@@ -25,7 +25,6 @@ collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', fu
             console.log('Error getting record', error);
         });
     };
-    
     self.getGenres = function(){
         $http.get('/genres').then((response) => {
             self.records.genres = response.data;
@@ -33,26 +32,24 @@ collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', fu
             console.log('Error getting record', error);
         });
     };
-
     self.getFavorites = function() {
         $http.get('/favorites').then((response) => {
             self.records.favorites = response.data;
         }).catch((error) => {
             console.log('Error getting favorites', error);
         });
-    }
+    };
 
     self.addRecord = function(recordToAdd) {
         $mdDialog.hide();
         $http.post('/records', recordToAdd).then((response) => {
             self.getRecords();
             self.getGenres();
-            self.showToast('Record added!');
         }).catch(function(error){
             console.log('Error adding record!');
         })
         
-    }
+    };
     self.addGenre = function(genreToAdd) {
         $http.post('/genres', {genre: genreToAdd} ).then((response) => {
             self.getRecords();
@@ -61,7 +58,7 @@ collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', fu
         }).catch((error) => {
             console.log('Error adding genre!');
         })
-    }
+    };
 
     self.deleteRecord = function(ev, recordToDelete) {
         // Create the dialog
@@ -85,7 +82,7 @@ collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', fu
         }, function() {
             
         });
-    }
+    };
     self.deleteGenre = function(genreToDelete){
         $mdDialog.hide();
         $http.delete(`/genres/${genreToDelete.genre_id}`).then((response) => {
@@ -94,7 +91,7 @@ collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', fu
         }).catch((error) => {
             console.log('error deleting', error);
         })
-    }
+    };
 
     self.editRecord = function(recordToEdit){
         $mdDialog.hide();
@@ -111,7 +108,7 @@ collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', fu
         }).catch((error) => {
             console.log('error updating', error);
         })
-    }
+    };
     self.editGenre = function(genreToEdit){
         $mdDialog.hide();
         $http({
@@ -125,7 +122,7 @@ collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', fu
             console.log('error updating', error);
         })
         
-    }
+    };
     
     self.popUpRecord = function(ev, record) {
         self.records.popUpRec = record;
@@ -139,7 +136,7 @@ collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', fu
           .then(function(answer) {
           }, function() {
           });
-    }
+    };
 
     self.popUpAddRec = function(ev) {
         $mdDialog.show({
@@ -152,7 +149,7 @@ collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', fu
           .then(function(answer) {
           }, function() {
           });
-    }
+    };
 
     self.popUpGenre = function(ev, genre) {
         self.records.popUpGen = genre;
@@ -171,7 +168,7 @@ collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', fu
           .then(function(answer) {
           }, function() {
           });
-    }
+    };
 
     self.showToast = function(toastText) {
         $mdToast.show(
