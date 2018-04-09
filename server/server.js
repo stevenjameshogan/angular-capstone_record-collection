@@ -4,6 +4,7 @@ const PORT = 3086;
 const bodyParser = require('body-parser');
 const recordsRouter = require('./routes/records.router.js');
 const genresRouter = require('./routes/genres.router.js');
+const favoritesRouter = require('./routes/favorites.router.js');
 
 
 // Configure body-parser
@@ -13,6 +14,7 @@ app.use(bodyParser.json()); // This line is required for Angular
 
 app.use('/records', recordsRouter);
 app.use('/genres', genresRouter);
+app.use('/favorites', favoritesRouter);
 
 app.use(express.static('server/public'))
 

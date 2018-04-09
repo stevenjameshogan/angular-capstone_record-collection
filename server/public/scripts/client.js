@@ -9,6 +9,9 @@ collectionApp.config(function($routeProvider){
     }).when('/genres', {
         templateUrl: '/views/genres.view.html',
         controller: 'GenresController as vm'
+    }).when('/favorites', {
+        templateUrl: '/views/favorites.view.html',
+        controller: 'FavoritesController as vm'
     }).otherwise(
         {redirectTo: '/records'});
 });

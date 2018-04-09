@@ -4,7 +4,8 @@ const pool = require('../modules/pool');
 router.get('/', (req, res) => {
     if (req.query.q === undefined){
         const queryText = `SELECT records.id, records.title, records.artist, records.release_year, records.run_time, records.album_img, 
-        genres.name as "genre_name" FROM records JOIN genres ON records.genre_id = genres.genre_id;`;
+        records.is_favorite, genres.name as "genre_name" FROM records JOIN genres 
+        ON records.genre_id = genres.genre_id;`;
         pool.query(queryText).then((result) => {
             res.send(result.rows);
         }).catch((error) => {
@@ -13,7 +14,8 @@ router.get('/', (req, res) => {
         })
     } else {
         const queryText = `SELECT records.id, records.title, records.artist, records.release_year, records.run_time, records.album_img, 
-        genres.name as "genre_name" FROM records JOIN genres ON records.genre_id = genres.genre_id;`;
+        records.is_favorite, genres.name as "genre_name" FROM records JOIN genres 
+        ON records.genre_id = genres.genre_id;`;
         pool.query(queryText).then((result) => {
             res.send(result.rows);
         }).catch((error) => {

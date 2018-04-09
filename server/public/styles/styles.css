@@ -211,3 +211,7 @@ form,  {
     padding: 10px;
     font-size: 36px; 
 }
+
+.fav {
+    color: red; 
+}
