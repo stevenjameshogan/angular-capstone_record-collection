@@ -1,8 +1,9 @@
-// Connect $http functionality
+// Connect $http functionality, inject angular components
 collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', function($http, $mdDialog, $mdToast){
     const self = this;
-
+    // Create onbject with empty arrays in which to store GET request data
     self.records = { collection: [], genres: [], favorites: [] }
+    // Create value options for record "release_year" and "run_time" properties
     self.years = {list: [1951, 1952, 1953, 1954, 1955, 1956, 1957, 1958, 1959, 1960, 
         1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1969, 1970, 
         1971, 1972, 1973, 1974, 1975, 1976, 1977, 1978, 1979, 1980, 
@@ -17,7 +18,7 @@ collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', fu
         90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 
         110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120]}
 
-    /// GET
+    // GET records in database, reassign as array in self.records object
     self.getRecords = function(){
         $http.get('/records').then((response) => {
             self.records.collection = response.data;
@@ -25,6 +26,7 @@ collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', fu
             console.log('Error getting record', error);
         });
     };
+    // GET genres in database, reassign as array in self.records object
     self.getGenres = function(){
         $http.get('/genres').then((response) => {
             self.records.genres = response.data;
@@ -32,6 +34,7 @@ collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', fu
             console.log('Error getting record', error);
         });
     };
+    // GET favorite records in database, reassign as array in self.records object
     self.getFavorites = function() {
         $http.get('/favorites').then((response) => {
             self.records.favorites = response.data;
@@ -40,6 +43,7 @@ collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', fu
         });
     };
 
+    // POST new record in database using user input data, close angular material dialogue, update records and genres for DOM display
     self.addRecord = function(recordToAdd) {
         $mdDialog.hide();
         $http.post('/records', recordToAdd).then((response) => {
@@ -50,18 +54,20 @@ collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', fu
         })
         
     };
+    // POST new genre in database using user input data, update records and genres for DOM display
     self.addGenre = function(genreToAdd) {
         $http.post('/genres', {genre: genreToAdd} ).then((response) => {
             self.getRecords();
             self.getGenres();
-            self.showToast('Genre added!');
+            self.showToast('Genre added!'); // not working, not sure why?
         }).catch((error) => {
             console.log('Error adding genre!');
         })
     };
 
+    // DELETE selected record from database based on unique id, but confirm first using material dialogue
     self.deleteRecord = function(ev, recordToDelete) {
-        // Create the dialog
+        // Create the material dialog
         var confirm = $mdDialog.confirm()
                 .title('Are you sure you want to delete ' + 
                 recordToDelete.title + ' by ' + recordToDelete.artist + '?!')
@@ -70,19 +76,21 @@ collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', fu
                 .ok('Delete away!') // triggers the .then function below in mdDialog
                 .cancel('No, keep ' + recordToDelete.title); // triggers the .catch function below in mdDialog
 
-        // Display the dialog
+        // If user confirms, delete record from db using unique id, retrieve updated records and genres for DOM display
         $mdDialog.show(confirm).then(function() {
             $http.delete(`/records/${recordToDelete.id}`).then((response) => {
                 self.getRecords();
                 self.getGenres();
+                self.getFavorites();
             }).catch((error) => {
                 console.log('error deleting', error);
             })
-            showToast('We deleted the record!');
+            showToast('We deleted the record!'); // not working, not sure why?
         }, function() {
             
         });
     };
+    // DELETE selected genre from database based on unique genre_id, close angular material dialogue popup on DOM
     self.deleteGenre = function(genreToDelete){
         $mdDialog.hide();
         $http.delete(`/genres/${genreToDelete.genre_id}`).then((response) => {
@@ -92,10 +100,10 @@ collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', fu
             console.log('error deleting', error);
         })
     };
-
+     // PUT/EDIT selected record in database based on unique id, close angular material dialogue,
+     // update current records, genres, and favorites for DOM display, clear "popUpRec" object
     self.editRecord = function(recordToEdit){
         $mdDialog.hide();
-        console.log(recordToEdit);
         $http({
             method: 'PUT',
             url: `/records/${recordToEdit.id}`,
@@ -109,6 +117,8 @@ collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', fu
             console.log('error updating', error);
         })
     };
+    // PUT/EDIT selected genre in database based on unique genre_id, close angular material dialogue,
+    // update current records and genres for DOM display
     self.editGenre = function(genreToEdit){
         $mdDialog.hide();
         $http({
@@ -124,6 +134,8 @@ collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', fu
         
     };
     
+    // Creata popup angular material dialogue when user clicks record image, display new page view (recPopUp.html),
+    // which displays record details to user and allows editing/deleting of record
     self.popUpRecord = function(ev, record) {
         self.records.popUpRec = record;
         $mdDialog.show({
@@ -137,7 +149,8 @@ collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', fu
           }, function() {
           });
     };
-
+    // Creata popup angular material dialogue on user click,, display new page view (addRecPopUp.html),
+    // which allows user to input a new record
     self.popUpAddRec = function(ev) {
         $mdDialog.show({
             // controller: 'RecordsController',
@@ -150,7 +163,8 @@ collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', fu
           }, function() {
           });
     };
-
+    // Creata popup angular material dialogue when user clicks genre div, display new page view (genPopUp.html),
+    // which displays genre details to user and allows editing/deleting of genre
     self.popUpGenre = function(ev, genre) {
         self.records.popUpGen = genre;
         if (genre.count == 0){
@@ -170,6 +184,7 @@ collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', fu
           });
     };
 
+    // Alert user when actions have been completed. Currently not working and not sure why!
     self.showToast = function(toastText) {
         $mdToast.show(
             $mdToast.simple()
@@ -178,7 +193,7 @@ collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', fu
         );
     };
 
-
+    // Obtain current records, genres, and favorites on page load for DOM display
     self.getRecords();
     self.getGenres();
     self.getFavorites();

@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const pool = require('../modules/pool');
 
+// GET all records that have been favorited by user
 router.get('/', (req, res) => {
     const queryText = `SELECT records.id, records.title, records.artist, records.release_year, records.run_time, 
     records.album_img, records.is_favorite, genres.name as "genre_name" FROM records JOIN genres 
@@ -8,7 +9,6 @@ router.get('/', (req, res) => {
     pool.query(queryText).then((result) => {
         res.send(result.rows);
     }).catch((error) => {
-        console.log('Error getting records');
         res.sendStatus(500);
     })
 })

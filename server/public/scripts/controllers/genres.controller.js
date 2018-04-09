@@ -1,27 +1,20 @@
+// Link controller to Service, inject angular material components
 collectionApp.controller('GenresController', ['CollectionService', function(CollectionService){
-    console.log('Genres Controller loaded!');
     
     const self = this;
-    
+    // Clear new genre input on DOM
     self.genreToAdd = '';
-
+    // Declare aliases to service variables, arrays and objects
     self.records = CollectionService.records;
+    self.is0 = CollectionService.is0;
+     // Declare aliases to service functions
     self.getRecords = CollectionService.getRecords;
     self.editGenre = CollectionService.editGenre;
-    self.popUpGenre =  CollectionService.popUpGenre;
-    self.is0 = CollectionService.is0;
-        
+    self.deleteGenre = CollectionService.deleteGenre;
+    self.popUpGenre =  CollectionService.popUpGenre; 
+    // Call addGenre function on service, clears new genre input on DOM
     self.addGenre = function(genreToAdd){
         CollectionService.addGenre(genreToAdd);
         self.genreToAdd = '';
     }
-
-    self.deleteGenre = function(genreToDelete){
-        if (genreToDelete.count == 0){
-            CollectionService.deleteGenre(genreToDelete);
-        } else {
-            alert('Cannot delete genre with active records!')
-        }
-    }
-
 }]);
