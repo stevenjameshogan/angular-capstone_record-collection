@@ -1,7 +1,8 @@
 <div id="genPopUpDiv" ng-controller="GenresController as vm">
     <div style="font-size: 50px">{{vm.records.popUpGen.name}}</div><br>  
-    <div style="font-size: 25px">Current Records: {{vm.records.popUpGen.count}}</div><br>
+    <div style="font-size: 25px">Current Records: {{vm.records.popUpGen.count}}</div>
     <div ng-show="edit"><input type="text" ng-model="vm.records.popUpGen.name"></div>
+    <br>
     <div class="genreBtnDiv">
         <md-button class="material-icons md-36" ng-show="vm.is0" ng-click="vm.deleteGenre(vm.records.popUpGen)">&#xE872;</md-button>
         <md-button class="material-icons md-36" ng-show="edit" ng-click="vm.editGenre(vm.records.popUpGen); edit=false">&#xE876;</md-button>

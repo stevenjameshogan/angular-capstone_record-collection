@@ -2,8 +2,9 @@ const router = require('express').Router();
 const pool = require('../modules/pool');
 
 router.get('/', (req, res) => {
-    const queryText = `SELECT genres.name, genres.genre_id, count(records.genre_id) FROM genres LEFT JOIN records 
-    ON genres.genre_id = records.genre_id  GROUP BY genres.name, genres.genre_id;`
+    const queryText = `SELECT genres.name, genres.genre_id, count(records.genre_id) as count, string_agg(records.album_img, ',') 
+    as img_list FROM genres LEFT JOIN records ON genres.genre_id = records.genre_id  
+    GROUP BY genres.name, genres.genre_id ORDER BY count DESC;`
     pool.query(queryText).then((result) => {
         res.send(result.rows);
     }).catch((error) => {
