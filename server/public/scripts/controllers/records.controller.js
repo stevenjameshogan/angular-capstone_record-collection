@@ -14,7 +14,32 @@ collectionApp.controller('RecordsController', ['CollectionService','$mdToast', '
     self.getRecords = CollectionService.getRecords;
     self.getGenres = CollectionService.getGenres;
     self.editRecord = CollectionService.editRecord;
-    self.deleteRecord = CollectionService.deleteRecord;
+    self.deleteRecord = function(ev, recordToDelete) {
+        console.log('I AM HERE');
+        // Create the material dialog
+        var confirm = $mdDialog.confirm()
+        .title('Are you sure you want to delete ' + 
+        recordToDelete.title + ' by ' + recordToDelete.artist + '?!')
+        .ariaLabel('You want to delete record?')
+        .targetEvent(ev)
+        .ok('Delete away!') // triggers the .then function below in mdDialog
+        .cancel('No, keep ' + recordToDelete.title); // triggers the .catch function below in mdDialog
+
+        // If user confirms, delete record from db using unique id, retrieve updated records and genres for DOM display
+        $mdDialog.show(confirm).then(function() {
+            CollectionService.deleteRecord(recordToDelete).then(function(response){
+                // confirm toast
+                
+            });
+            
+
+        });
+        
+    }
+    
+    
+    
+    
     self.showToast = CollectionService.showToast;
     self.popUpRecord = CollectionService.popUpRecord;
     self.popUpAddRec = CollectionService.popUpAddRec;

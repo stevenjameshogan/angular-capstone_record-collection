@@ -66,29 +66,16 @@ collectionApp.service('CollectionService', ['$http', '$mdDialog', '$mdToast', fu
     };
 
     // DELETE selected record from database based on unique id, but confirm first using material dialogue
-    self.deleteRecord = function(ev, recordToDelete) {
-        // Create the material dialog
-        var confirm = $mdDialog.confirm()
-                .title('Are you sure you want to delete ' + 
-                recordToDelete.title + ' by ' + recordToDelete.artist + '?!')
-                .ariaLabel('You want to delete record?')
-                .targetEvent(ev)
-                .ok('Delete away!') // triggers the .then function below in mdDialog
-                .cancel('No, keep ' + recordToDelete.title); // triggers the .catch function below in mdDialog
-
-        // If user confirms, delete record from db using unique id, retrieve updated records and genres for DOM display
-        $mdDialog.show(confirm).then(function() {
-            $http.delete(`/records/${recordToDelete.id}`).then((response) => {
-                self.getRecords();
-                self.getGenres();
-                self.getFavorites();
-            }).catch((error) => {
-                console.log('error deleting', error);
-            })
-            showToast('We deleted the record!'); // not working, not sure why?
-        }, function() {
-            
-        });
+    self.deleteRecord = function(recordToDelete) {
+        return $http.delete(`/records/${recordToDelete.id}`).then((response) => {
+            self.getRecords();
+            self.getGenres();
+            self.getFavorites();
+            return response;
+        }).catch((error) => {
+            console.log('error deleting', error);
+            return error;
+        })
     };
     // DELETE selected genre from database based on unique genre_id, close angular material dialogue popup on DOM
     self.deleteGenre = function(genreToDelete){

@@ -10,18 +10,15 @@
         </div>
     <div class="genreName" ng-if="!edit" style="font-size: 23px">{{vm.records.popUpRec.genre_name}}</div>
         <select ng-model="vm.records.popUpRec.genre_id" ng-if="edit">
-                <option value="{{vm.records.popUpRec.genre_id}}">{{vm.records.popUpRec.genre_name}}</option>
-                <option ng-repeat="genre in vm.records.genres" value="{{genre.genre_id}}">{{genre.name}}</option>
+                <option ng-repeat="genre in vm.records.genres" ng-value="{{genre.genre_id}}">{{genre.name}}</option>
         </select>
     <div ng-if="!edit" style="font-size: 18px">{{vm.records.popUpRec.release_year}}</div>
         <select ng-model="vm.records.popUpRec.release_year" ng-if="edit">
-                <option value="{{vm.records.popUpRec.release_year}}"></option>
-                <option ng-repeat="year in vm.years.list">{{year}}</option>
+                <option ng-repeat="year in vm.years.list" ng-value="{{year}}">{{year}}</option>
         </select>
     <div ng-if="!edit" style="font-size: 18px">{{vm.records.popUpRec.run_time}} Minutes</div>
         <select ng-model="vm.records.popUpRec.run_time" ng-if="edit">
-                <option value="{{vm.records.popUpRec.run_time}}">{{vm.records.popUpRec.run_time}}</option>
-                <option ng-repeat="minute in vm.minutes.list">{{minute}}</option>
+                <option ng-repeat="minute in vm.minutes.list" ng-value="{{minute}}">{{minute}}</option>
         </select>
     <div>
         <input type="text" ng-model="vm.records.popUpRec.album_img" ng-if="edit">
