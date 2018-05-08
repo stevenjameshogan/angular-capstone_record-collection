@@ -1,8 +1,9 @@
 # My Record Collection - April, 2018
 
 This app is a dynamic, virtual Record Collection, and was my AngularJS solo capstone project at Prime Digital Academy.
-
 On the landing page, a user is greeted with a birds-eye view of his or her current collection.
+
+![Landing Page](screenshots/1 LandingPage.png)
 
 DATABASE TABLE SETUP - QUERY
 
