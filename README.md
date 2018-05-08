@@ -29,7 +29,7 @@ Finally, users can manage the genres in their collection and see how many record
 - PostgreSQL
 - pg 
 
-## Instalation
+## Installation
 In Node.js: 
 - npm start
 
