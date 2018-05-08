@@ -18,7 +18,7 @@
         </select>
     <div ng-if="!edit" style="font-size: 18px">{{vm.records.popUpRec.run_time}} Minutes</div>
         <select ng-model="vm.records.popUpRec.run_time" ng-if="edit">
-                <option ng-repeat="minute in vm.minutes.list" ng-value="{{minute}}">{{minute}}</option>
+                <option ng-repeat="minute in vm.minutes.list" ng-value="{{minute}}">{{minute}} Min</option>
         </select>
     <div>
         <input type="text" ng-model="vm.records.popUpRec.album_img" ng-if="edit">
