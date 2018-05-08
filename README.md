@@ -3,23 +3,23 @@
 This app is a dynamic, virtual Record Collection, and was my AngularJS solo capstone project at Prime Digital Academy.
 On the landing page, a user is greeted with a birds-eye view of his or her current collection.
 
-![Landing Page](screenshots/LandingPage - 1.png)
+![Landing Page](screenshots/LandingPage.png)
 
 Upon clicking an individual record, a modal will display featuring details for that record. Here, the user can also edit the record details, add it to their "Favorites", or delete it from their collection.
 
-![Record Details](screenshots/RecordDetails - 2.png)
+![Record Details](screenshots/RecordDetails.png)
 
 Users can also add records via another popup modal, which displays an input form. Any added records are immediately viewable from the landing page upon hitting "Submit"
 
-![Add Records](screenshots/AddRecords - 3.png)
+![Add Records](screenshots/AddRecords.png)
 
 Users can search their collection by artist name, record name, genre, or any record detail parameters. This example displays all records in the collection with the genre "Rock"
 
-![Search Records](screenshots/SearchRecords - 4.png)
+![Search Records](screenshots/SearchRecords.png)
 
 Finally, users can manage the genres in their collection and see how many records fall into each genre.
 
-![Manage Genres](screenshots/ManageGenres - 5.png)
+![Manage Genres](screenshots/ManageGenres.png)
 
 ## This application is built with: 
 - AngularJS
