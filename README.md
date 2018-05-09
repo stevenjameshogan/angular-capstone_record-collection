@@ -38,11 +38,12 @@ In browser:
 
 ### Database Setup - PostgreSQL
 
-```CREATE DATABASE record_collection
+``` 
+CREATE DATABASE record_collection
 
-```-- Create table to store genres
+-- Create table to store genres
 
-```CREATE TABLE genres (
+CREATE TABLE genres (
 genre_id serial primary key,
 name varchar (80),
 quantity INT
@@ -50,7 +51,7 @@ quantity INT
 
 -- Create table to store records
 
-```CREATE TABLE records (
+CREATE TABLE records (
 id serial primary key,
 title varchar (120),
 artist varchar (80),
