@@ -13,7 +13,7 @@ Users can also add records via another popup modal, which displays an input form
 
 ![Add Records](screenshots/AddRecords.png)
 
-Users can search their collection by artist name, record name, genre, or any record detail parameters. This example displays all records in the collection with the genre "Rock"
+Users can search their collection by artist name, record name, genre, or any record detail parameters.
 
 ![Search Records](screenshots/SearchRecords.png)
 
